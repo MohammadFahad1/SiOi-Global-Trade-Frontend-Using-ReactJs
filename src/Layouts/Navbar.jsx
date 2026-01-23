@@ -174,7 +174,7 @@ const Navbar = () => {
       </section>
       {/* Search Section Ends */}
       <nav>
-        <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-xl px-10">
+        <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
           <div className="lg:hidden dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
