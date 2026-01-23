@@ -1,0 +1,78 @@
+.sliderContainer {
+  position: relative;
+  --primary-color: #bf1d1e;
+}
+
+/* Container for the bullets */
+.sliderContainer :global(.swiper-pagination) {
+  bottom: 20px !important;
+}
+
+/* Base style for all bullets */
+.sliderContainer :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 0 6px !important;
+}
+
+/* Active bullet styling (Pill shape) */
+.sliderContainer :global(.swiper-pagination-bullet-active) {
+  width: 30px;
+  border-radius: 5px;
+  background-color: #bf1d1e;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+}
+
+/* Optional: Hover effect for desktop */
+.sliderContainer :global(.swiper-pagination-bullet:hover) {
+  background-color: #ffffff;
+  transform: scale(1.2);
+}
+
+.sliderContainer :global(.swiper-navigation-icon) {
+  width: 30px;
+  height: 30px;
+}
+
+/* Base styles for both arrows */
+.sliderContainer :global(.swiper-button-next),
+.sliderContainer :global(.swiper-button-prev) {
+  color: #fff !important; /* Change arrow color */
+  background: gray; /* Circular background */
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  opacity: 0.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 20px !important;
+}
+
+/* Make the icons smaller inside the circles */
+.sliderContainer :global(.swiper-button-next::after),
+.sliderContainer :global(.swiper-button-prev::after) {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+/* Hover Effects */
+.sliderContainer :global(.swiper-button-next:hover),
+.sliderContainer :global(.swiper-button-prev:hover) {
+  background-color: var(--primary-color);
+  color: white !important;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Hide arrows on small mobile screens if desired */
+@media (max-width: 768px) {
+  .sliderContainer :global(.swiper-button-next),
+  .sliderContainer :global(.swiper-button-prev) {
+    display: none;
+  }
+}

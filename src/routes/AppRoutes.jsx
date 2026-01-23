@@ -6,6 +6,7 @@ import MainLayout from "../Layouts/MainLayout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import "animate.css";
 
 const AppRoutes = () => {
   useEffect(() => {
