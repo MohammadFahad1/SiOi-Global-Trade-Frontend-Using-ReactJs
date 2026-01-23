@@ -174,7 +174,7 @@ const Navbar = () => {
       </section>
       {/* Search Section Ends */}
       <nav>
-        <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-lg px-10">
+        <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-xl px-10">
           <div className="lg:hidden dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -204,7 +204,10 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>
           </div>
           <div className="navbar-end">
-            <a className="btn btn-dash btn-error bg-white rounded-xl font-bold hover:text-[#bf1d1e] hover:transform hover:scale-105 transition-transform duration-300">
+            <a
+              className="btn btn-dash btn-error bg-white rounded-xl font-bold hover:text-[#bf1d1e] hover:transform hover:scale-105 transition-transform duration-300"
+              data-aos="zoom-in"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

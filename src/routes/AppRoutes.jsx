@@ -3,8 +3,18 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About";
 import Products from "../pages/Products/Products";
 import MainLayout from "../Layouts/MainLayout";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const AppRoutes = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
   return (
     <Routes>
       {/* <Route index element={<Home />} />
