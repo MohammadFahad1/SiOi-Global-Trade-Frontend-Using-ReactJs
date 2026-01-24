@@ -4,6 +4,7 @@ import HeroBottom from "./HeroBottom";
 import FilterParts from "./FilterParts";
 import FeaturedProduct from "./FeaturedProduct";
 import FeaturedProductBottom from "./FeaturedProductBottom";
+import BannerSection from "./BannerSection";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <FilterParts />
       <FeaturedProduct />
       <FeaturedProductBottom />
+      <BannerSection />
     </div>
   );
 };
