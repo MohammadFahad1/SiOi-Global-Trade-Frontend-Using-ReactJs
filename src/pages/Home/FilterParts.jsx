@@ -77,11 +77,11 @@ const FilterParts = () => {
     },
   ];
   return (
-    <section className="px-10">
+    <section className="px-10 pb-10">
       {/* Section Info Starts */}
       <div className="flex flex-col items-center justify-center">
         <div
-          className="flex gap-2 items-center px-6 py-3 rounded-full bg-[#fcecec] uppercase text-md font-semibold text-[#bf1d1e] border border-[#bf1d1e] my-8"
+          className="flex gap-2 items-center px-6 py-3 rounded-full bg-[#fcecec] uppercase text-md font-semibold text-[#bf1d1e] border border-[#bf1d1e] my-8 text-center"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -103,7 +103,7 @@ const FilterParts = () => {
           <h4>Auto Parts</h4>
         </div>
         <h4
-          className="font-bold text-5xl"
+          className="font-bold text-2xl md:text-4xl lg:text-5xl text-center"
           data-aos="fade-down"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -111,7 +111,7 @@ const FilterParts = () => {
           Quality Parts That
         </h4>
         <h4
-          className="font-bold text-5xl text-[#bf1d1e] my-2"
+          className="font-bold text-2xl md:text-4xl lg:text-5xl text-[#bf1d1e] my-2 text-center"
           data-aos="zoom-in"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -145,7 +145,7 @@ const FilterParts = () => {
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="50"
-            className="bg-white shadow-sm hover:bg-[#fcecec] transition-colors duration-300 rounded-xl hover:shadow-sm hover:shadow-[#bf1d1e]"
+            className="bg-white shadow-sm hover:bg-[#fcecec] duration-300 rounded-xl hover:shadow-sm hover:shadow-[#bf1d1e] hover:transform hover:scale-110 transition-all relative top-0 left-0 group"
           >
             <div className="card">
               <figure className="p-0">
@@ -158,6 +158,22 @@ const FilterParts = () => {
               <div className="card-body items-center text-center">
                 <h2 className="card-title mb-5">{part.title}</h2>
               </div>
+            </div>
+            <div className="p-3 bg-[#bf1d1e] w-12 h-12 rounded-full  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:flex group-hover:items-center group-hover:justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
             </div>
           </NavLink>
         ))}

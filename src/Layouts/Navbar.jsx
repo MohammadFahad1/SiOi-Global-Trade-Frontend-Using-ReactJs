@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const Navbar = () => {
   const navLinks = (
@@ -175,7 +176,7 @@ const Navbar = () => {
       {/* Search Section Ends */}
       <nav>
         <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
-          <div className="lg:hidden dropdown">
+          <div className="lg:hidden dropdown z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -227,6 +228,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <ScrollToTopButton />
     </header>
   );
 };
