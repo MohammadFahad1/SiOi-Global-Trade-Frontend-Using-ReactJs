@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import HeroBottom from "./HeroBottom";
 import FilterParts from "./FilterParts";
 import FeaturedProduct from "./FeaturedProduct";
+import FeaturedProductBottom from "./FeaturedProductBottom";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <HeroBottom />
       <FilterParts />
       <FeaturedProduct />
+      <FeaturedProductBottom />
     </div>
   );
 };

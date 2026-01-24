@@ -152,7 +152,7 @@ const FeaturedProduct = () => {
         className="flex flex-wrap md:flex-nowrap gap-4 items-center justify-center my-5"
         data-aos="fade-up"
         data-aos-duration="800"
-        data-aos-delay="100"
+        data-aos-delay="50"
       >
         <NavLink
           to="/"
@@ -228,7 +228,7 @@ const FeaturedProduct = () => {
         className="text-gray-800 max-w-110 text-center text-md mb-5"
         data-aos="fade-down"
         data-aos-duration="800"
-        data-aos-delay="100"
+        data-aos-delay="50"
       >
         Explore our complete catalog of authentic Japanese auto parts with fast
         nationwide shipping
