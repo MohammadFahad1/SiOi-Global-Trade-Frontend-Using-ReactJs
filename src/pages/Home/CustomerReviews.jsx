@@ -1,4 +1,4 @@
-// import React, { useRef } from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import CustomerReviewCard from "../../components/CustomerReviewCard";
@@ -8,10 +8,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 const CustomerReviews = () => {
-  //   const swiperRef = useRef(null);
+  const swiperRef = useRef(null);
 
   return (
-    <section className="w-full py-16 md:py-20 lg:py-24 relative overflow-hidden bg-white ">
+    <section className="w-full py-16 md:py-20 lg:py-24 relative overflow-hidden bg-white">
       <div className="absolute inset-0 w-full bg-linear-to-br from-gray-50/50 to-red-50/30">
         <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-400/5 rounded-full blur-3xl" />
@@ -24,6 +24,9 @@ const CustomerReviews = () => {
           <div
             className="inline-flex items-center gap-3 bg-red-50 border border-red-200 px-6 py-3 rounded-full mb-8"
             style={{ transform: "none" }}
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="50"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +49,9 @@ const CustomerReviews = () => {
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6"
             style={{ opacity: 1, transform: "none" }}
+            data-aos="fade-down"
+            data-aos-duration="800"
+            data-aos-delay="50"
           >
             <span className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               Trusted by Car Enthusiasts Worldwide
@@ -54,15 +60,64 @@ const CustomerReviews = () => {
           <div
             className="w-24 h-1 bg-linear-to-r from-red-500 to-red-600 mx-auto mb-8 rounded-full"
             style={{ width: "6rem" }}
+            data-aos="fade-in"
+            data-aos-duration="800"
+            data-aos-delay="50"
           />
         </div>
         {/* Review Cards will be added here */}
-        <CustomerReviewCard />
+        <div
+          className="flex justify-center items-center gap-5 px-10"
+          data-aos="zoom-in"
+          data-aos-duration="800"
+          data-aos-delay="50"
+        >
+          <Swiper
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            slidesPerView={1}
+            spaceBetween={20}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+            }}
+            modules={[Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <CustomerReviewCard />
+            </SwiperSlide>
+          </Swiper>
+        </div>
         <div className="flex justify-center items-center gap-4 mt-8">
           <button
             className="w-12 h-12 bg-white border-2 border-red-500 text-red-600 hover:bg-red-50 hover:border-red-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
             tabIndex={0}
             aria-label="Previous slide"
+            onClick={() => swiperRef.current?.slidePrev()}
           >
             <svg
               className="w-5 h-5"
@@ -82,6 +137,7 @@ const CustomerReviews = () => {
             className="w-12 h-12 bg-white border-2 border-red-500 text-red-600 hover:bg-red-50 hover:border-red-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
             tabIndex={0}
             aria-label="Next slide"
+            onClick={() => swiperRef.current?.slideNext()}
           >
             <svg
               className="w-5 h-5"
@@ -99,7 +155,12 @@ const CustomerReviews = () => {
           </button>
         </div>
         <div className="mt-20" style={{ opacity: 1, transform: "none" }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="50"
+          >
             <div className="text-center p-6 lg:p-8 bg-linear-to-br from-white to-red-50/50 rounded-xl border border-red-200/50 shadow-sm hover:shadow-lg transition-all duration-500 group">
               <div className="w-12 h-12 bg-red-100 group-hover:bg-red-200 flex items-center justify-center rounded-xl mx-auto mb-4 transition-colors duration-300">
                 <svg

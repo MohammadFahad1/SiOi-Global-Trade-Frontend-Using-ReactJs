@@ -21,7 +21,12 @@ const Navbar = () => {
       {/* Search Section Starts */}
       <section className="flex px-8 py-6 justify-between items-center bg-[#111828] text-white font-bold text-xl">
         <NavLink to="/">
-          <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" />
+          {/* <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" /> */}
+          <img
+            src="sioi_logo_red.png"
+            alt="SiOi Global Trade Logo"
+            className="h-15"
+          />
         </NavLink>
         <label className="input lg:w-[45%] hidden md:flex bg-white text-black rounded-full cursor-pointer hover:outline-2 hover:outline-amber-500">
           <svg
