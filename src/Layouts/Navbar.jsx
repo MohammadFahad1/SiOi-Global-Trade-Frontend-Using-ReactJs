@@ -62,7 +62,7 @@ const Navbar = () => {
             </svg>
             <p>Call Us (10.00am-8.00pm)</p>
           </div>
-          <div className="flex items-center gap-1 text-2xl font-medium text-[#bf1d1e]">
+          <div className="flex items-center gap-1 text-2xl font-medium text-red-600">
             <svg
               fill="#bf1d1e"
               height="18px"
@@ -175,7 +175,7 @@ const Navbar = () => {
       </section>
       {/* Search Section Ends */}
       <nav>
-        <div className="navbar bg-[#bf1d1e] shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
+        <div className="navbar bg-red-600 shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
           <div className="lg:hidden dropdown z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -206,7 +206,7 @@ const Navbar = () => {
           </div>
           <div className="navbar-end">
             <a
-              className="btn btn-dash btn-error bg-white rounded-xl font-bold hover:text-[#bf1d1e] hover:transform hover:scale-105 transition-transform duration-300"
+              className="btn btn-dash btn-error bg-white rounded-xl font-bold hover:text-red-600 hover:transform hover:scale-105 transition-transform duration-300"
               data-aos="zoom-in"
             >
               <svg

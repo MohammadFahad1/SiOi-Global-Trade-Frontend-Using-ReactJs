@@ -81,7 +81,7 @@ const FilterParts = () => {
       {/* Section Info Starts */}
       <div className="flex flex-col items-center justify-center">
         <div
-          className="flex gap-2 items-center px-6 py-3 rounded-full bg-[#fcecec] uppercase text-md font-semibold text-[#bf1d1e] border border-[#bf1d1e] my-8 text-center"
+          className="flex gap-2 items-center px-6 py-3 rounded-full bg-red-100 uppercase text-md font-semibold text-red-600 border border-red-600 my-8 text-center"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -111,7 +111,7 @@ const FilterParts = () => {
           Quality Parts That
         </h4>
         <h4
-          className="font-bold text-2xl md:text-4xl lg:text-5xl text-[#bf1d1e] my-2 text-center"
+          className="font-bold text-2xl md:text-4xl lg:text-5xl text-red-600 my-2 text-center"
           data-aos="zoom-in"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -119,7 +119,7 @@ const FilterParts = () => {
           Deliver Performance
         </h4>
         <span
-          className="block w-25 h-0.75 bg-[#bf1d1e] my-2"
+          className="block w-25 h-0.75 bg-red-600 my-2"
           data-aos="fade-in"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -145,7 +145,7 @@ const FilterParts = () => {
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="50"
-            className="bg-white shadow-sm hover:bg-[#fcecec] duration-300 rounded-xl hover:shadow-sm hover:shadow-[#bf1d1e] hover:transform hover:scale-110 transition-all relative top-0 left-0 group"
+            className="bg-white shadow-sm hover:bg-red-100 duration-300 rounded-xl hover:shadow-sm hover:shadow-red-600 hover:transform hover:scale-110 transition-all relative top-0 left-0 group"
           >
             <div className="card">
               <figure className="p-0">
@@ -159,7 +159,7 @@ const FilterParts = () => {
                 <h2 className="card-title mb-5">{part.title}</h2>
               </div>
             </div>
-            <div className="p-3 bg-[#bf1d1e] w-12 h-12 rounded-full  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:flex group-hover:items-center group-hover:justify-center">
+            <div className="p-3 bg-red-600 w-12 h-12 rounded-full  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:flex group-hover:items-center group-hover:justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

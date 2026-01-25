@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 const BannerSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-gray-50">
+    <section className="bg-gray-50">
       <section className="relative ">
         <div className="relative py-16 md:py-20 overflow-hidden">
           <div className="absolute inset-0">
@@ -23,8 +23,8 @@ const BannerSection = () => {
                 color: "transparent",
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-gray-900/70 to-slate-900/90" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
+            <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-gray-900/70 to-slate-900/90" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/40" />
           </div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
@@ -65,7 +65,7 @@ const BannerSection = () => {
               >
                 Why Choose Japan Parts Direct
                 <span
-                  className="block bg-gradient-to-r from-red-400 via-red-500 to-red-400 bg-clip-text text-transparent"
+                  className="block bg-linear-to-r from-red-400 via-red-500 to-red-400 bg-clip-text text-transparent"
                   data-aos="fade-down"
                   data-aos-duration="800"
                   data-aos-delay="50"
@@ -129,7 +129,7 @@ const BannerSection = () => {
                 Complete Automotive
                 <span className="block text-red-600">Solutions</span>
               </h2>
-              <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-4 sm:mb-6 rounded-full" />
+              <div className="w-16 sm:w-20 h-1 bg-linear-to-r from-red-500 to-red-600 mx-auto mb-4 sm:mb-6 rounded-full" />
               <p
                 className="text-gray-600 text-lg max-w-2xl mx-auto leading-normal"
                 data-aos="fade-in"
@@ -152,9 +152,9 @@ const BannerSection = () => {
                 style={{ opacity: 1, transform: "none" }}
               >
                 <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full ring-2 ring-red-500/20">
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute -top-2 -right-2">
-                    <div className="bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <div className="bg-linear-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                       Popular
                     </div>
                   </div>
@@ -193,7 +193,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -211,7 +211,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -229,7 +229,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -238,7 +238,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
@@ -285,7 +285,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -303,7 +303,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -321,7 +321,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -330,7 +330,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
@@ -373,7 +373,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -391,7 +391,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -409,7 +409,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -418,7 +418,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
@@ -462,7 +462,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -480,7 +480,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -498,7 +498,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -507,7 +507,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
@@ -551,7 +551,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -569,7 +569,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -587,7 +587,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -596,7 +596,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
@@ -604,9 +604,9 @@ const BannerSection = () => {
                 style={{ opacity: 1, transform: "none" }}
               >
                 <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full ring-2 ring-red-500/20">
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute -top-2 -right-2">
-                    <div className="bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <div className="bg-linear-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                       Popular
                     </div>
                   </div>
@@ -646,7 +646,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -664,7 +664,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -682,7 +682,7 @@ const BannerSection = () => {
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="h-3 w-3 text-emerald-500 mr-2 flex-shrink-0"
+                          className="h-3 w-3 text-emerald-500 mr-2 shrink-0"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                           <polyline points="22 4 12 14.01 9 11.01" />
@@ -691,7 +691,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
             </div>
@@ -766,7 +766,7 @@ const BannerSection = () => {
             </div>
           </div>
         </div>
-        <div className="py-16 bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
+        <div className="py-16 bg-linear-to-r from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/15 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
@@ -789,16 +789,31 @@ const BannerSection = () => {
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+              <h3
+                className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="50"
+              >
                 Experience Premium Quality
               </h3>
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-normal">
+              <p
+                className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-normal"
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="50"
+              >
                 Join thousands of automotive enthusiasts who trust Japan Parts
                 for authentic quality and exceptional service.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="50"
+              >
                 <NavLink
-                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-gray-900 font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 group"
+                  className="inline-flex items-center px-8 py-3 bg-linear-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-gray-900 font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 group"
                   to="/"
                 >
                   <svg

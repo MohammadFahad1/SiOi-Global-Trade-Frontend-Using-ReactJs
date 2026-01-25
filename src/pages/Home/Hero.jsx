@@ -99,7 +99,7 @@ const Hero = () => {
                   <div className="flex gap-3 justify-center">
                     {slide.buttons?.map((button) => (
                       <button
-                        className="btn btn-primary bg-[#bf1d1e] border-[#bf1d1e] flex gap-2"
+                        className="btn btn-primary bg-red-600 border-red-600 flex gap-2"
                         key={button.id}
                       >
                         <img

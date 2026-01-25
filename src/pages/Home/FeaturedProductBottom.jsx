@@ -10,7 +10,7 @@ const FeaturedProductBottom = () => {
     >
       <div className="text-center group" style={{ transform: "none" }}>
         <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
             <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-[#ee4444]/25">
               <svg
@@ -40,7 +40,7 @@ const FeaturedProductBottom = () => {
 
       <div className="text-center group" style={{ transform: "none" }}>
         <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
             <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-red-600/25">
               <svg
@@ -66,7 +66,7 @@ const FeaturedProductBottom = () => {
 
       <div className="text-center group" style={{ transform: "none" }}>
         <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
             <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-yellow-700/25">
               <svg
@@ -92,7 +92,7 @@ const FeaturedProductBottom = () => {
 
       <div className="text-center group" style={{ transform: "none" }}>
         <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
             <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-[#ee4444]/25">
               <svg

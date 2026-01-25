@@ -5,6 +5,7 @@ import FilterParts from "./FilterParts";
 import FeaturedProduct from "./FeaturedProduct";
 import FeaturedProductBottom from "./FeaturedProductBottom";
 import BannerSection from "./BannerSection";
+import BestSellingProducts from "./BestSellingProducts";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <FeaturedProduct />
       <FeaturedProductBottom />
       <BannerSection />
+      <BestSellingProducts />
     </div>
   );
 };

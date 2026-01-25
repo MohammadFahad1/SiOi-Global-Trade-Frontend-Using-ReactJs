@@ -8,7 +8,7 @@ const FeaturedProduct = () => {
       {/* Section Info Starts */}
       <div className="flex flex-col items-center justify-center">
         <div
-          className="flex gap-2 items-center px-6 py-3 rounded-full bg-[#bf1d1e] uppercase text-md font-semibold text-white border border-[#bf1d1e] my-8 text-center"
+          className="flex gap-2 items-center px-6 py-3 rounded-full bg-red-600 uppercase text-md font-semibold text-white border border-red-600 my-8 text-center"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -37,7 +37,7 @@ const FeaturedProduct = () => {
         >
           Premium Quality{" "}
           <span
-            className="font-bold text-2xl md:text-4xl lg:text-5xl text-[#bf1d1e] my-2 text-center"
+            className="font-bold text-2xl md:text-4xl lg:text-5xl text-red-600 my-2 text-center"
             data-aos="zoom-in"
             data-aos-duration="800"
             data-aos-delay="50"
@@ -46,7 +46,7 @@ const FeaturedProduct = () => {
           </span>
         </h4>
         <span
-          className="block w-25 h-0.75 bg-[#bf1d1e] my-2"
+          className="block w-25 h-0.75 bg-red-600 my-2"
           data-aos="fade-in"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -89,7 +89,7 @@ const FeaturedProduct = () => {
           </div>
 
           <div className="flex items-center justify-center gap-2 text-gray-700 font-semibold">
-            <div className="w-7 h-7 md:w-9 md:h-9 p-2 rounded-full bg-red-200 text-[#bf1d1e]">
+            <div className="w-7 h-7 md:w-9 md:h-9 p-2 rounded-full bg-red-200 text-red-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -141,6 +141,10 @@ const FeaturedProduct = () => {
         data-aos-duration="800"
         data-aos-delay="50"
       >
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
