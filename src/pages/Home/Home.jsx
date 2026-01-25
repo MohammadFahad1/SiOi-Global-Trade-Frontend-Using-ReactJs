@@ -6,6 +6,7 @@ import FeaturedProduct from "./FeaturedProduct";
 import FeaturedProductBottom from "./FeaturedProductBottom";
 import BannerSection from "./BannerSection";
 import BestSellingProducts from "./BestSellingProducts";
+import CustomerReviews from "./CustomerReviews";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <FeaturedProductBottom />
       <BannerSection />
       <BestSellingProducts />
+      <CustomerReviews />
     </div>
   );
 };
