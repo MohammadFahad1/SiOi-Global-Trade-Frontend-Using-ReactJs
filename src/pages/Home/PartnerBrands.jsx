@@ -1,6 +1,16 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import ProductCard from "../../components/ProductCard";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import PartnerBrandCard from "../../components/PartnerBrandCard";
 
 const PartnerBrands = () => {
+  let arr = new Array(20).fill(0);
   return (
     <section className="py-12 md:py-16 bg-gray-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,11 +32,21 @@ const PartnerBrands = () => {
                 d="M13 10V3L4 14h7v7l9-11h-7z"
               />
             </svg>
-            <span className="text-blue-700 font-bold text-sm md:text-base uppercase tracking-wider">
+            <span
+              className="text-blue-700 font-bold text-sm md:text-base uppercase tracking-wider"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="50"
+            >
               Premium Partners
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tight"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="50"
+          >
             <span>Shop </span>
             <span>Premium </span>
             <span>
@@ -35,7 +55,12 @@ const PartnerBrands = () => {
               </span>
             </span>
           </h2>
-          <div className="text-center max-w-3xl mx-auto">
+          <div
+            className="text-center max-w-3xl mx-auto"
+            data-aos="fade-down"
+            data-aos-duration="800"
+            data-aos-delay="50"
+          >
             <p className="text-gray-600 text-lg md:text-xl mb-4 leading-relaxed">
               Discover authentic Japanese automotive parts from world-renowned
               manufacturers. Click any brand to explore their exclusive
@@ -70,49 +95,38 @@ const PartnerBrands = () => {
           </div>
         </div>
         <div className="relative px-2">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-full bg-linear-to-r from-gray-50 via-gray-50/80 to-transparent pointer-events-none opacity-60" />
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-full bg-linear-to-l from-gray-50 via-gray-50/80 to-transparent pointer-events-none opacity-60" />
           <div
-            className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-6 pt-2 px-4"
-            style={{ scrollbarWidth: "none", opacity: 1, transform: "none" }}
+            className="w-full"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="50"
           >
-            <a
-              className="block transform-gpu transition-transform duration-300"
-              href="/collections/toyota"
+            {/* Brand Cards will be placed here */}
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={20}
+              pagination={{ clickable: true }}
+              loop={false}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
+              breakpoints={{
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 8,
+                  spaceBetween: 40,
+                },
+              }}
+              modules={[Autoplay, Navigation]}
+              className="mySwiper"
             >
-              <div
-                className="shrink-0"
-                style={{
-                  opacity: 0,
-                  transform: "translateY(20px) scale(0.95) translateZ(0px)",
-                }}
-              >
-                <div className="relative w-32 h-24 bg-white rounded-xl border-2 transition-all duration-400 group overflow-hidden border-gray-200 hover:border-blue-400 hover:shadow-lg cursor-pointer transform-gpu">
-                  <div className="absolute inset-0 bg-linear-to-br from-gray-50/50 via-white to-gray-50/30" />
-                  <div className="absolute -top-1 -right-1 z-20">
-                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center border border-white">
-                      <div className="w-2 h-2 bg-white rounded-full" />
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 ease-out z-10" />
-                  <div className="relative z-15 p-3 flex flex-col items-center justify-center h-full">
-                    <div className="mb-1 flex items-center justify-center h-12">
-                      <img
-                        src="/images/brands/toyota.png"
-                        alt="Toyota authentic parts"
-                        className="max-w-full max-h-full object-contain filter group-hover:brightness-110 group-hover:saturate-110 transition-all duration-400"
-                      />
-                    </div>
-                    <div className="text-center w-full">
-                      <div className="text-xs font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300 truncate">
-                        Toyota
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 border border-blue-400 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none" />
-                </div>
-              </div>
-            </a>
+              {arr.map((_, index) => (
+                <SwiperSlide key={index}>
+                  <PartnerBrandCard />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
           <div className="flex md:hidden items-center justify-center mt-4 text-sm text-gray-500">
             <svg
