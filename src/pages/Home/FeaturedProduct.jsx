@@ -2,13 +2,13 @@ import React from "react";
 import ProductCard from "../../components/ProductCard";
 import { NavLink } from "react-router";
 
-const FeaturedProduct = () => {
+const FeatublueProduct = () => {
   return (
-    <section className="px-10 pb-10 flex flex-col items-center justify-center">
+    <section className="px-4 md:px-10 pb-10 flex flex-col items-center justify-center">
       {/* Section Info Starts */}
       <div className="flex flex-col items-center justify-center">
         <div
-          className="flex gap-2 items-center px-6 py-3 rounded-full bg-red-600 uppercase text-md font-semibold text-white border border-red-600 my-8 text-center"
+          className="flex gap-2 items-center px-6 py-3 rounded-full bg-blue-600 uppercase text-md font-semibold text-white border border-blue-600 my-8 text-center"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -37,16 +37,16 @@ const FeaturedProduct = () => {
         >
           Premium Quality{" "}
           <span
-            className="font-bold text-2xl md:text-4xl lg:text-5xl text-red-600 my-2 text-center"
+            className="font-bold text-2xl md:text-4xl lg:text-5xl text-blue-600 my-2 text-center"
             data-aos="zoom-in"
             data-aos-duration="800"
             data-aos-delay="50"
           >
-            Featured Premium Parts
+            Featublue Premium Parts
           </span>
         </h4>
         <span
-          className="block w-25 h-0.75 bg-red-600 my-2"
+          className="block w-25 h-0.75 bg-blue-600 my-2"
           data-aos="fade-in"
           data-aos-duration="800"
           data-aos-delay="50"
@@ -89,7 +89,7 @@ const FeaturedProduct = () => {
           </div>
 
           <div className="flex items-center justify-center gap-2 text-gray-700 font-semibold">
-            <div className="w-7 h-7 md:w-9 md:h-9 p-2 rounded-full bg-red-200 text-red-600">
+            <div className="w-7 h-7 md:w-9 md:h-9 p-2 rounded-full bg-blue-200 text-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -136,7 +136,7 @@ const FeaturedProduct = () => {
 
       {/* Product Cards Starts */}
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mx-10 my-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-4 md:px-8 my-10"
         data-aos="zoom-in"
         data-aos-duration="800"
         data-aos-delay="50"
@@ -160,7 +160,7 @@ const FeaturedProduct = () => {
       >
         <NavLink
           to="/"
-          className="btn btn-error bg-red-600 font-bold text-white text-md md:text-xl rounded-2xl py-4 md:py-8 px-5 text-center w-1/2 hover:shadow-sm hover:transform hover:scale-105 transition-all duration-300 hover:shadow-red-600"
+          className="btn btn-info bg-blue-600 font-bold text-white text-md md:text-xl rounded-2xl py-4 md:py-8 px-5 text-center w-1/2 hover:shadow-sm hover:transform hover:scale-105 transition-all duration-300 hover:shadow-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +194,7 @@ const FeaturedProduct = () => {
         </NavLink>
         <NavLink
           to="/"
-          className="btn btn-outline btn-error bg-white hover:bg-red-100 font-bold text-gray-400 text-md md:text-xl border-2 border-gray-400 rounded-2xl py-4 md:py-8 px-5 text-center w-1/2 hover:text-red-600 hover:border-red-600 hover:shadow-sm hover:transform hover:scale-105 transition-all duration-300"
+          className="btn btn-outline btn-error bg-white hover:bg-blue-100 font-bold text-gray-400 text-md md:text-xl border-2 border-gray-400 rounded-2xl py-4 md:py-8 px-5 text-center w-1/2 hover:text-blue-600 hover:border-blue-600 hover:shadow-sm hover:transform hover:scale-105 transition-all duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -241,4 +241,4 @@ const FeaturedProduct = () => {
   );
 };
 
-export default FeaturedProduct;
+export default FeatublueProduct;

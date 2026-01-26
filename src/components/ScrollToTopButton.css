@@ -7,8 +7,8 @@
 
 .scroll-to-top-button {
   background-color: transparent;
-  color: #bf1d1e;
-  border: 2px solid #bf1d1e;
+  color: #155dfc;
+  border: 2px solid #155dfc;
   border-radius: 50%;
   height: 50px;
   width: 50px;
@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 1px 6px #bf1d1e;
+  box-shadow: 0 1px 6px #155dfc;
   font-size: 1.5rem;
   transition:
     background-color 0.3s,
@@ -24,6 +24,6 @@
 }
 
 .scroll-to-top-button:hover {
-  background-color: #bf1d1e;
+  background-color: #155dfc;
   color: #ffffff;
 }

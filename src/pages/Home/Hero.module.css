@@ -1,6 +1,6 @@
 .sliderContainer {
   position: relative;
-  --primary-color: #bf1d1e;
+  --primary-color: #155dfc;
 }
 
 /* Container for the bullets */
@@ -23,7 +23,7 @@
 .sliderContainer :global(.swiper-pagination-bullet-active) {
   width: 30px;
   border-radius: 5px;
-  background-color: #bf1d1e;
+  background-color: #155dfc;
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
 }
 

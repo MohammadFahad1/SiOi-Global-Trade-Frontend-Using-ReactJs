@@ -12,9 +12,9 @@ const CustomerReviews = () => {
 
   return (
     <section className="w-full py-16 md:py-20 lg:py-24 relative overflow-hidden bg-white">
-      <div className="absolute inset-0 w-full bg-linear-to-br from-gray-50/50 to-red-50/30">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-400/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 w-full bg-linear-to-br from-gray-50/50 to-blue-50/30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
       </div>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div
@@ -22,7 +22,7 @@ const CustomerReviews = () => {
           style={{ opacity: 1, transform: "none" }}
         >
           <div
-            className="inline-flex items-center gap-3 bg-red-50 border border-red-200 px-6 py-3 rounded-full mb-8"
+            className="inline-flex items-center gap-3 bg-blue-50 border border-blue-200 px-6 py-3 rounded-full mb-8"
             style={{ transform: "none" }}
             data-aos="fade-up"
             data-aos-duration="800"
@@ -38,11 +38,11 @@ const CustomerReviews = () => {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-red-600 h-5 w-5"
+              className="text-blue-600 h-5 w-5"
             >
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
-            <span className="text-red-600 font-bold text-sm uppercase tracking-wider">
+            <span className="text-blue-600 font-bold text-sm uppercase tracking-wider">
               Customer Reviews
             </span>
           </div>
@@ -58,7 +58,7 @@ const CustomerReviews = () => {
             </span>
           </h2>
           <div
-            className="w-24 h-1 bg-linear-to-r from-red-500 to-red-600 mx-auto mb-8 rounded-full"
+            className="w-24 h-1 bg-linear-to-r from-blue-500 to-blue-600 mx-auto mb-8 rounded-full"
             style={{ width: "6rem" }}
             data-aos="fade-in"
             data-aos-duration="800"
@@ -114,7 +114,7 @@ const CustomerReviews = () => {
         </div>
         <div className="flex justify-center items-center gap-4 mt-8">
           <button
-            className="w-12 h-12 bg-white border-2 border-red-500 text-red-600 hover:bg-red-50 hover:border-red-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
+            className="w-12 h-12 bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 hover:border-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
             tabIndex={0}
             aria-label="Previous slide"
             onClick={() => swiperRef.current?.slidePrev()}
@@ -134,7 +134,7 @@ const CustomerReviews = () => {
             </svg>
           </button>
           <button
-            className="w-12 h-12 bg-white border-2 border-red-500 text-red-600 hover:bg-red-50 hover:border-red-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
+            className="w-12 h-12 bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 hover:border-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer"
             tabIndex={0}
             aria-label="Next slide"
             onClick={() => swiperRef.current?.slideNext()}
@@ -161,8 +161,8 @@ const CustomerReviews = () => {
             data-aos-duration="800"
             data-aos-delay="50"
           >
-            <div className="text-center p-6 lg:p-8 bg-linear-to-br from-white to-red-50/50 rounded-xl border border-red-200/50 shadow-sm hover:shadow-lg transition-all duration-500 group">
-              <div className="w-12 h-12 bg-red-100 group-hover:bg-red-200 flex items-center justify-center rounded-xl mx-auto mb-4 transition-colors duration-300">
+            <div className="text-center p-6 lg:p-8 bg-linear-to-br from-white to-blue-50/50 rounded-xl border border-blue-200/50 shadow-sm hover:shadow-lg transition-all duration-500 group">
+              <div className="w-12 h-12 bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center rounded-xl mx-auto mb-4 transition-colors duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -173,13 +173,13 @@ const CustomerReviews = () => {
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-red-600 h-6 w-6"
+                  className="text-blue-600 h-6 w-6"
                 >
                   <circle cx={12} cy={8} r={6} />
                   <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
                 </svg>
               </div>
-              <div className="text-3xl lg:text-4xl font-bold text-red-600 mb-2">
+              <div className="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
                 4.9<span className="text-gray-900">/5</span>
               </div>
               <div className="text-gray-900 font-bold text-lg mb-1">

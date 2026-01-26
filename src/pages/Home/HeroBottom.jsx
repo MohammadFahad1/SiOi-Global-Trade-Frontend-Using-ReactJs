@@ -5,7 +5,7 @@ const HeroBottom = () => {
     <section className="mx-5 md:mx-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5 my-15">
       {/* Card Starts */}
       <div
-        className="hover-3d cursor-pointer  bg-white text-black hover:bg-red-100 hover:border border-amber-300 rounded-xl"
+        className="hover-3d cursor-pointer  bg-white text-black hover:bg-blue-100 hover:border border-blue-300 rounded-xl"
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-delay="50"
@@ -13,7 +13,7 @@ const HeroBottom = () => {
         {/* content */}
         <div className="card bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]">
           <div className="flex items-center gap-3 p-5">
-            <div className="bg-pink-200 p-4 text-red-600 border-r-2 rounded-md h-14 w-14">
+            <div className="bg-blue-200 p-4 text-blue-600 border-r-2 rounded-md h-14 w-14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -30,7 +30,7 @@ const HeroBottom = () => {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-red-600">
+              <h4 className="text-lg font-bold text-blue-600">
                 Authentic Japanese Parts
               </h4>
               <p className="text-sm text-gray-700">
@@ -54,7 +54,7 @@ const HeroBottom = () => {
 
       {/* Card Starts */}
       <div
-        className="hover-3d cursor-pointer  bg-white text-black hover:bg-red-100 hover:border border-amber-300 rounded-xl"
+        className="hover-3d cursor-pointer  bg-white text-black hover:bg-blue-100 hover:border border-blue-300 rounded-xl"
         data-aos="fade-up"
         data-aos-duration="800"
         data-aos-delay="50"
@@ -62,7 +62,7 @@ const HeroBottom = () => {
         {/* content */}
         <div className="card bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]">
           <div className="flex items-center gap-3 p-5">
-            <div className="bg-pink-200 p-4 text-red-600 border-r-2 rounded-md h-14 w-14">
+            <div className="bg-blue-200 p-4 text-blue-600 border-r-2 rounded-md h-14 w-14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -79,7 +79,7 @@ const HeroBottom = () => {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-red-600">
+              <h4 className="text-lg font-bold text-blue-600">
                 Fast Nationwide Delivery
               </h4>
               <p className="text-sm text-gray-700">
@@ -102,7 +102,7 @@ const HeroBottom = () => {
       {/* Card Ends */}
       {/* Card Starts */}
       <div
-        className="hover-3d cursor-pointer  bg-white text-black hover:bg-red-100 hover:border border-amber-300 rounded-xl"
+        className="hover-3d cursor-pointer  bg-white text-black hover:bg-blue-100 hover:border border-blue-300 rounded-xl"
         data-aos="fade-left"
         data-aos-duration="800"
         data-aos-delay="50"
@@ -110,7 +110,7 @@ const HeroBottom = () => {
         {/* content */}
         <div className="card bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]">
           <div className="flex items-center gap-3 p-5">
-            <div className="bg-pink-200 p-4 text-red-600 border-r-2 rounded-md h-14 w-14">
+            <div className="bg-blue-200 p-4 text-blue-600 border-r-2 rounded-md h-14 w-14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -127,7 +127,7 @@ const HeroBottom = () => {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-red-600">
+              <h4 className="text-lg font-bold text-blue-600">
                 7-Day Easy Returns
               </h4>
               <p className="text-sm text-gray-700">
@@ -150,7 +150,7 @@ const HeroBottom = () => {
       {/* Card Ends */}
       {/* Card Starts */}
       <div
-        className="hover-3d cursor-pointer  bg-white text-black hover:bg-red-100 hover:border border-amber-300 rounded-xl"
+        className="hover-3d cursor-pointer  bg-white text-black hover:bg-blue-100 hover:border border-blue-300 rounded-xl"
         data-aos="fade-down"
         data-aos-duration="800"
         data-aos-delay="50"
@@ -158,7 +158,7 @@ const HeroBottom = () => {
         {/* content */}
         <div className="card bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]">
           <div className="flex items-center gap-3 p-5">
-            <div className="bg-pink-200 p-4 text-red-600 border-r-2 rounded-md h-14 w-14">
+            <div className="bg-blue-200 p-4 text-blue-600 border-r-2 rounded-md h-14 w-14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -171,7 +171,7 @@ const HeroBottom = () => {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-red-600">
+              <h4 className="text-lg font-bold text-blue-600">
                 Expert Support Team
               </h4>
               <p className="text-sm text-gray-700">

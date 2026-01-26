@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeaturedProductBottom = () => {
+const FeatublueProductBottom = () => {
   return (
     <section
       className="py-15 px-10 border-y border-gray-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
@@ -9,10 +9,10 @@ const FeaturedProductBottom = () => {
       data-aos-delay="50"
     >
       <div className="text-center group" style={{ transform: "none" }}>
-        <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-6 rounded-2xl border border-blue-200 transition-all duration-500 shadow-lg shadow-blue-100 hover:shadow-blue-600/15 relative overflow-hidden">
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
-            <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-[#ee4444]/25">
+            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-600/25">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -33,16 +33,16 @@ const FeaturedProductBottom = () => {
               </svg>
             </div>
             <div className="font-bold text-sm mb-1">Free Shipping</div>
-            <div className="text-xs">Minimum purchase required</div>
+            <div className="text-xs">Minimum purchase requiblue</div>
           </div>
         </div>
       </div>
 
       <div className="text-center group" style={{ transform: "none" }}>
-        <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-6 rounded-2xl border border-blue-200 transition-all duration-500 shadow-lg shadow-blue-100 hover:shadow-blue-600/15 relative overflow-hidden">
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
-            <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-red-600/25">
+            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-600/25">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -65,10 +65,10 @@ const FeaturedProductBottom = () => {
       </div>
 
       <div className="text-center group" style={{ transform: "none" }}>
-        <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-6 rounded-2xl border border-blue-200 transition-all duration-500 shadow-lg shadow-blue-100 hover:shadow-blue-600/15 relative overflow-hidden">
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
-            <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-yellow-700/25">
+            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-yellow-700/25">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -91,10 +91,10 @@ const FeaturedProductBottom = () => {
       </div>
 
       <div className="text-center group" style={{ transform: "none" }}>
-        <div className="bg-[#fef2f2] hover:bg-[#f8d2d2] text-[#ee4444] px-4 py-6 rounded-2xl border border-red-200 transition-all duration-500 shadow-lg shadow-red-100 hover:shadow-[#ee4444]/15 relative overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-[#ee4444]/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-6 rounded-2xl border border-blue-200 transition-all duration-500 shadow-lg shadow-blue-100 hover:shadow-blue-600/15 relative overflow-hidden">
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           <div className="relative">
-            <div className="w-12 h-12 bg-[#ee4444] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-[#ee4444]/25">
+            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-600/25">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -120,4 +120,4 @@ const FeaturedProductBottom = () => {
   );
 };
 
-export default FeaturedProductBottom;
+export default FeatublueProductBottom;

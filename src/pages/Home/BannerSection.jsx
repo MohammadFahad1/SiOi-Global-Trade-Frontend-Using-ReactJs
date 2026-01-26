@@ -26,15 +26,15 @@ const BannerSection = () => {
             <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-gray-900/70 to-slate-900/90" />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/40" />
           </div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
           <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             <div
               className="text-center"
               style={{ opacity: 1, transform: "none" }}
             >
               <div
-                className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-6 py-3 rounded-full mb-6"
+                className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-6 py-3 rounded-full mb-6"
                 data-aos="fade-up"
                 data-aos-duration="800"
                 data-aos-delay="50"
@@ -49,11 +49,11 @@ const BannerSection = () => {
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-red-400 h-4 w-4"
+                  className="text-blue-400 h-4 w-4"
                 >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
-                <span className="text-red-400 font-bold text-sm uppercase tracking-wider">
+                <span className="text-blue-400 font-bold text-sm uppercase tracking-wider">
                   Premium Service
                 </span>
               </div>
@@ -65,12 +65,12 @@ const BannerSection = () => {
               >
                 Why Choose Japan Parts Direct
                 <span
-                  className="block bg-linear-to-r from-red-400 via-red-500 to-red-400 bg-clip-text text-transparent"
+                  className="block bg-linear-to-r from-blue-400 via-blue-500 to-blue-400 bg-clip-text text-transparent"
                   data-aos="fade-down"
                   data-aos-duration="800"
                   data-aos-delay="50"
                 >
-                  Excellence Delivered
+                  Excellence Deliveblue
                 </span>
               </h1>
               <p
@@ -87,8 +87,8 @@ const BannerSection = () => {
         </div>
         <div className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-red-500/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-red-500/3 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/3 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <div
@@ -96,7 +96,7 @@ const BannerSection = () => {
               style={{ opacity: 1, transform: "none" }}
             >
               <div
-                className="inline-flex items-center gap-1 sm:gap-2 bg-red-50 border border-red-200 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6"
+                className="inline-flex items-center gap-1 sm:gap-2 bg-blue-50 border border-blue-200 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6"
                 data-aos="fade-down"
                 data-aos-duration="800"
                 data-aos-delay="50"
@@ -111,12 +111,12 @@ const BannerSection = () => {
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-red-600 h-3 w-3 sm:h-4 sm:w-4"
+                  className="text-blue-600 h-3 w-3 sm:h-4 sm:w-4"
                 >
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
-                <span className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wider">
+                <span className="text-blue-600 font-bold text-xs sm:text-sm uppercase tracking-wider">
                   Our Advantages
                 </span>
               </div>
@@ -127,9 +127,9 @@ const BannerSection = () => {
                 data-aos-delay="50"
               >
                 Complete Automotive
-                <span className="block text-red-600">Solutions</span>
+                <span className="block text-blue-600">Solutions</span>
               </h2>
-              <div className="w-16 sm:w-20 h-1 bg-linear-to-r from-red-500 to-red-600 mx-auto mb-4 sm:mb-6 rounded-full" />
+              <div className="w-16 sm:w-20 h-1 bg-linear-to-r from-blue-500 to-blue-600 mx-auto mb-4 sm:mb-6 rounded-full" />
               <p
                 className="text-gray-600 text-lg max-w-2xl mx-auto leading-normal"
                 data-aos="fade-in"
@@ -151,15 +151,15 @@ const BannerSection = () => {
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full ring-2 ring-red-500/20">
-                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full ring-2 ring-blue-500/20">
+                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-blue-500/3 to-blue-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute -top-2 -right-2">
-                    <div className="bg-linear-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <div className="bg-linear-to-r from-blue-500 to-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                       Popular
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-red-500/20 text-red-600">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-blue-500/20 text-blue-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={24}
@@ -175,7 +175,7 @@ const BannerSection = () => {
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Authentic Guarantee
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -238,14 +238,14 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full border-gray-200">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full border-gray-200">
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-gray-100 text-gray-700">
                       <svg
@@ -267,7 +267,7 @@ const BannerSection = () => {
                         <circle cx="17.5" cy="17.5" r="2.5" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Fast Shipping
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -330,14 +330,14 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full border-gray-200">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full border-gray-200">
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-gray-100 text-gray-700">
                       <svg
@@ -355,7 +355,7 @@ const BannerSection = () => {
                         <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Expert Support
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -418,14 +418,14 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full border-gray-200">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full border-gray-200">
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-gray-100 text-gray-700">
                       <svg
@@ -444,7 +444,7 @@ const BannerSection = () => {
                         <path d="M3 3v5h5" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Easy Returns
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -507,14 +507,14 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full border-gray-200">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full border-gray-200">
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-gray-100 text-gray-700">
                       <svg
@@ -533,7 +533,7 @@ const BannerSection = () => {
                         <polyline points="12 6 12 12 16 14" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Same-Day Processing
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -596,22 +596,22 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
               <div
                 className="group relative"
                 style={{ opacity: 1, transform: "none" }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-red-300/50 h-full ring-2 ring-red-500/20">
-                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-red-500/3 to-red-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border hover:border-blue-300/50 h-full ring-2 ring-blue-500/20">
+                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-blue-500/3 to-blue-600/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute -top-2 -right-2">
-                    <div className="bg-linear-to-r from-red-500 to-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <div className="bg-linear-to-r from-blue-500 to-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                       Popular
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-red-500/20 text-red-600">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 bg-blue-500/20 text-blue-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={24}
@@ -628,7 +628,7 @@ const BannerSection = () => {
                         <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                       Best Price Promise
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -691,7 +691,7 @@ const BannerSection = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
             </div>
@@ -755,7 +755,7 @@ const BannerSection = () => {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-4 w-4 text-red-600"
+                    className="h-4 w-4 text-blue-600"
                   >
                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                     <polyline points="16 7 22 7 22 13" />
@@ -768,12 +768,12 @@ const BannerSection = () => {
         </div>
         <div className="py-16 bg-linear-to-r from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/15 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
             <div style={{ opacity: 1, transform: "none" }}>
-              <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -784,7 +784,7 @@ const BannerSection = () => {
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-8 w-8 text-red-400"
+                  className="h-8 w-8 text-blue-400"
                 >
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
@@ -813,7 +813,7 @@ const BannerSection = () => {
                 data-aos-delay="50"
               >
                 <NavLink
-                  className="inline-flex items-center px-8 py-3 bg-linear-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-gray-900 font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 group"
+                  className="inline-flex items-center px-8 py-3 bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-gray-900 font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group"
                   to="/"
                 >
                   <svg
@@ -851,7 +851,7 @@ const BannerSection = () => {
                   </svg>
                 </NavLink>
                 <NavLink
-                  className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-red-500 text-red-400 hover:bg-red-500 hover:text-gray-900 rounded-xl font-bold transition-all duration-300"
+                  className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-gray-900 rounded-xl font-bold transition-all duration-300"
                   to="/"
                 >
                   <svg

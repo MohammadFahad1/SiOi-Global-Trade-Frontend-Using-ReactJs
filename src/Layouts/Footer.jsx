@@ -142,7 +142,7 @@ const Footer = () => {
               Developed by{" "}
               <a
                 href="https://github.com/MohammadFahad1"
-                className="bg-red-600 px-2 py-1 text-white font-semibold rounded-md"
+                className="bg-blue-600 px-2 py-1 text-white font-semibold rounded-md"
               >
                 Md. Fahad Monshi
               </a>

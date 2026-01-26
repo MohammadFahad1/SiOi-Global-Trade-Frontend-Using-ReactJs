@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import styles from "./Hero.module.css";
 
-// import required modules
+// import requiblue modules
 import {
   Navigation,
   Pagination,
@@ -99,7 +99,7 @@ const Hero = () => {
                   <div className="flex gap-3 justify-center">
                     {slide.buttons?.map((button) => (
                       <button
-                        className="btn btn-primary bg-red-600 border-red-600 flex gap-2"
+                        className="btn btn-primary bg-blue-600 border-blue-600 flex gap-2"
                         key={button.id}
                       >
                         <img

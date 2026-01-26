@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 const ProductCard = () => {
   const [productQuantity, setProductQuantity] = useState(1);
   return (
-    <div className="group card bg-white text-black hover:border border-amber-300 rounded-xl shadow-sm hover:shadow-2xl hover:transform hover:scale-105 shadow-red-200 transition-all duration-300">
+    <div className="group card bg-white text-black hover:border border-blue-300 rounded-xl shadow-sm hover:shadow-2xl hover:transform hover:scale-105 shadow-blue-200 transition-all duration-300">
       {/* content */}
       <figure className="relative top-0 left-0">
         <img
@@ -50,7 +50,7 @@ const ProductCard = () => {
           </div>
         </div>
         <div className="absolute bottom-2 left-0 flex justify-start gap-2 w-full px-2">
-          <button className="hidden group-hover:block badge badge-neutral badge-outline border-0 shadow-xl font-semibold bg-gray-100 hover:bg-red-100 hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300 h-9 w-9 p-2 cursor-pointer">
+          <button className="hidden group-hover:block badge badge-neutral badge-outline border-0 shadow-xl font-semibold bg-gray-100 hover:bg-blue-100 hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300 h-9 w-9 p-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,7 +71,7 @@ const ProductCard = () => {
               />
             </svg>
           </button>
-          <button className="hidden group-hover:block badge badge-neutral badge-outline border-0 shadow-xl font-semibold bg-gray-100 hover:bg-red-100 hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300 h-9 w-9 p-2 cursor-pointer">
+          <button className="hidden group-hover:block badge badge-neutral badge-outline border-0 shadow-xl font-semibold bg-gray-100 hover:bg-blue-100 hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300 h-9 w-9 p-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -96,11 +96,11 @@ const ProductCard = () => {
           </div>
         </div>
         <NavLink to="/">
-          <h2 className="card-title transition-colors duration-300 group-hover:text-[#bf1d1e]">
+          <h2 className="card-title transition-colors duration-300 group-hover:text-blue-600">
             PIAA LED Bulb 6000K LEH120E H4
           </h2>
         </NavLink>
-        <h3 className="text-xl font-bold text-[#bf1d1e] inter-font">
+        <h3 className="text-xl font-bold text-blue-600 inter-font">
           ৳4,680.00
         </h3>
         {/* Product Quantity Starts */}
@@ -169,7 +169,7 @@ const ProductCard = () => {
             </svg>
             Add
           </button>
-          <button className="btn btn-error bg-red-600 font-bold text-white px-5 text-center w-1/2">
+          <button className="btn btn-info bg-blue-600 font-bold text-white px-5 text-center w-1/2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

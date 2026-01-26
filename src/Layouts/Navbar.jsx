@@ -22,13 +22,9 @@ const Navbar = () => {
       <section className="flex px-8 py-6 justify-between items-center bg-[#111828] text-white font-bold text-xl">
         <NavLink to="/">
           {/* <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" /> */}
-          <img
-            src="sioi_logo_red.png"
-            alt="SiOi Global Trade Logo"
-            className="h-15"
-          />
+          <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" />
         </NavLink>
-        <label className="input lg:w-[45%] hidden md:flex bg-white text-black rounded-full cursor-pointer hover:outline-2 hover:outline-amber-500">
+        <label className="input lg:w-[45%] hidden md:flex bg-white text-black rounded-full cursor-pointer hover:outline-2 hover:outline-blue-500">
           <svg
             className="h-[1em] opacity-50"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +41,7 @@ const Navbar = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" required placeholder="Search Dorin Products" />
+          <input type="search" requiblue placeholder="Search Dorin Products" />
         </label>
 
         {/* Contact Info */}
@@ -67,9 +63,9 @@ const Navbar = () => {
             </svg>
             <p>Call Us (10.00am-8.00pm)</p>
           </div>
-          <div className="flex items-center gap-1 text-2xl font-medium text-red-600">
+          <div className="flex items-center gap-1 text-2xl font-medium text-blue-600">
             <svg
-              fill="#bf1d1e"
+              fill="currentColor"
               height="18px"
               width="18px"
               version="1.1"
@@ -156,7 +152,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              className="tooltip btn btn-soft btn-error ml-2 hidden md:flex"
+              className="tooltip btn btn-soft btn-info ml-2 hidden md:flex"
               data-tip="Login"
             >
               <svg
@@ -180,7 +176,7 @@ const Navbar = () => {
       </section>
       {/* Search Section Ends */}
       <nav>
-        <div className="navbar bg-red-600 shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
+        <div className="navbar bg-blue-600 shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
           <div className="lg:hidden dropdown z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -211,7 +207,7 @@ const Navbar = () => {
           </div>
           <div className="navbar-end">
             <a
-              className="btn btn-dash btn-error bg-white rounded-xl font-bold hover:text-red-600 hover:transform hover:scale-105 transition-transform duration-300"
+              className="btn btn-dash btn-info bg-white rounded-xl font-bold hover:text-blue-600 hover:transform hover:scale-105 transition-transform duration-300"
               data-aos="zoom-in"
             >
               <svg
