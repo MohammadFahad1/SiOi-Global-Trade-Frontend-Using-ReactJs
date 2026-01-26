@@ -8,6 +8,7 @@ import BannerSection from "./BannerSection";
 import BestSellingProducts from "./BestSellingProducts";
 import CustomerReviews from "./CustomerReviews";
 import LatestProducts from "./LatestProducts";
+import PartnerBrands from "./PartnerBrands";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <BestSellingProducts />
       <CustomerReviews />
       <LatestProducts />
+      <PartnerBrands />
     </div>
   );
 };
