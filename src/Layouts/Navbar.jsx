@@ -22,7 +22,11 @@ const Navbar = () => {
       <section className="flex px-8 py-6 justify-between items-center bg-[#111828] text-white font-bold text-xl">
         <NavLink to="/">
           {/* <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" /> */}
-          <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" />
+          <img
+            src="sioi_logo.png"
+            alt="SiOi Global Trade Logo"
+            className="h-15"
+          />
         </NavLink>
         <label className="input lg:w-[45%] hidden md:flex bg-white text-black rounded-full cursor-pointer hover:outline-2 hover:outline-blue-500">
           <svg
@@ -152,7 +156,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              className="tooltip btn btn-soft btn-info ml-2 hidden md:flex"
+              className="tooltip btn btn-soft btn-info text-blue-600 bg-white hover:bg-blue-600 hover:text-white hover:border-blue-600 ml-2 hidden md:flex"
               data-tip="Login"
             >
               <svg

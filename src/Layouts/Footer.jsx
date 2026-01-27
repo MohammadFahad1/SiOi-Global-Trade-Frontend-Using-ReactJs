@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <Link to="/">
             <img
-              src="logo.png"
+              src="sioi_logo.png"
               className="h-12 hover:transform hover:scale-105 transition-transform duration-150"
             />
           </Link>

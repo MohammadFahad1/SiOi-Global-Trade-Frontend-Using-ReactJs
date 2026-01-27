@@ -7,7 +7,7 @@ const About = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("/images/about/showroom-outside.jpg")',
+            backgroundImage: 'url("showroom-outside.jpg")',
           }}
         />
         <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/70" />
@@ -173,7 +173,7 @@ const About = () => {
               <div className="relative bg-linear-to-br from-blue-500/20 to-blue-300/20 rounded-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm border border-white/10">
                 <div className="w-full h-64 sm:h-72 lg:h-80 rounded-xl overflow-hidden relative">
                   <img
-                    src="/images/about/showroom-inside.png"
+                    src="showroom-inside.png"
                     alt="Japan Parts Showroom Interior"
                     className="w-full h-full object-cover"
                   />
@@ -280,7 +280,7 @@ const About = () => {
                   autoPlay
                   loop
                   playsInline
-                  poster="https://images.unsplash.com/photo-1562141961-4d2d4d3ea76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  poster="showroom-inside.png"
                 >
                   <source src="/videos/about-intro.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
