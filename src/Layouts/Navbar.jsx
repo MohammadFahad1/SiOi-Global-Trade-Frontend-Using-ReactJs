@@ -113,7 +113,7 @@ const Navbar = () => {
         </div>
         {/* Contact Info Ends */}
 
-        <ul className="menu menu-horizontal bg-base-200 rounded-box items-center">
+        <ul className="menu menu-horizontal bg-slate-950 rounded-box items-center text-white">
           <li>
             <a className="tooltip" data-tip="Favourite Product">
               <svg
