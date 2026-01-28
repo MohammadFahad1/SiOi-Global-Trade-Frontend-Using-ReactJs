@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "../../components/ProductCard";
+import LoadingCards from "../../components/LoadingCards";
 import axios from "axios";
 
 // Import Swiper styles
@@ -11,12 +12,19 @@ import "swiper/css/navigation";
 const BestSellingProducts = () => {
   const swiperRef = useRef(null);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
-      .then((res) => setProducts(res.data.results))
+      .then((res) => {
+        setProducts(res.data.results);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
+
+  if (loading) return <LoadingCards />;
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">

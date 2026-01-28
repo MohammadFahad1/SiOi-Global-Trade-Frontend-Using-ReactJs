@@ -2,16 +2,23 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import { NavLink } from "react-router";
 import axios from "axios";
+import LoadingCards from "../../components/LoadingCards";
 
 const FeatublueProduct = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
-      .then((res) => setProducts(res.data.results))
+      .then((res) => {
+        setProducts(res.data.results);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
+
+  if (loading) return <LoadingCards />;
 
   return (
     <section className="px-4 md:px-10 pb-10 flex flex-col items-center justify-center">

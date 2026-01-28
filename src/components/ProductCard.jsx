@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 
 const ProductCard = ({ product }) => {
   const [productQuantity, setProductQuantity] = useState(1);
+
   return (
     <div className="group card bg-white text-black hover:border border-blue-300 rounded-xl shadow-sm hover:shadow-2xl hover:transform hover:scale-105 shadow-blue-200 transition-all duration-300">
       {/* content */}
@@ -32,9 +33,15 @@ const ProductCard = ({ product }) => {
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
-            {product?.stock > 0 ? "In Stock" : "Out of Stock"}
+            {product?.stock > 0
+              ? product?.stock > 100
+                ? "High Stock"
+                : product?.stock > 50
+                  ? "Medium Stock"
+                  : "Low Stock"
+              : "Out of Stock"}
           </div>
-          <div className="badge badge-error text-white text-sm">
+          {/*  <div className="badge badge-error text-white text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -50,8 +57,8 @@ const ProductCard = ({ product }) => {
               <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
               <polyline points="16 7 22 7 22 13"></polyline>
             </svg>
-            -40%
-          </div>
+            {product?.stock}
+          </div> */}
         </div>
         <div className="absolute bottom-2 left-0 flex justify-start gap-2 w-full px-2">
           <button className="hidden group-hover:block badge badge-neutral badge-outline border-0 shadow-xl font-semibold bg-gray-100 hover:bg-blue-100 hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300 h-9 w-9 p-2 cursor-pointer">
@@ -136,7 +143,17 @@ const ProductCard = ({ product }) => {
           <span className="px-3">{productQuantity}</span>
           <button
             className="bg-gray-200 border rounded-sm w-8 h-8 p-2 hover:shadow-md cursor-pointer"
-            onClick={() => setProductQuantity(productQuantity + 1)}
+            onClick={() =>
+              productQuantity < product.stock
+                ? setProductQuantity(productQuantity + 1)
+                : alert(
+                    "We have only " +
+                      product.stock +
+                      " of this product (" +
+                      product.name +
+                      ") in stock. Please contact with us if you need more.",
+                  )
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
