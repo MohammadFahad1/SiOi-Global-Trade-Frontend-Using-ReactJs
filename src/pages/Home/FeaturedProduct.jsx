@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import { NavLink } from "react-router";
+import axios from "axios";
 
 const FeatublueProduct = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
+      .then((res) => setProducts(res.data.results))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <section className="px-4 md:px-10 pb-10 flex flex-col items-center justify-center">
       {/* Section Info Starts */}
@@ -141,14 +151,9 @@ const FeatublueProduct = () => {
         data-aos-duration="800"
         data-aos-delay="50"
       >
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products?.slice(0, 8)?.map((product) => (
+          <ProductCard product={product} />
+        ))}
       </div>
       {/* Product Cards Ends */}
 

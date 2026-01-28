@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "../../components/ProductCard";
@@ -7,8 +7,17 @@ import ProductCard from "../../components/ProductCard";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import axios from "axios";
 const LatestProducts = () => {
   const swiperRef = useRef(null);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
+      .then((res) => setProducts(res.data.results))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
@@ -86,7 +95,7 @@ const LatestProducts = () => {
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
             <span className="text-xs sm:text-sm font-medium text-gray-600">
-              10 Popular Products
+              {products.length > 0 ? products.length : 0} Popular Products
             </span>
           </div>
           <div className="hidden md:flex gap-2">
@@ -172,24 +181,11 @@ const LatestProducts = () => {
               modules={[Navigation]}
               className="mySwiper"
             >
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
-                <ProductCard />
-              </SwiperSlide>
+              {products?.map((product) => (
+                <SwiperSlide className="bg-blue-100 h-40 flex items-center justify-center rounded-lg">
+                  <ProductCard product={product} />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>

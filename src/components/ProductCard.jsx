@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const [productQuantity, setProductQuantity] = useState(1);
   return (
     <div className="group card bg-white text-black hover:border border-blue-300 rounded-xl shadow-sm hover:shadow-2xl hover:transform hover:scale-105 shadow-blue-200 transition-all duration-300">
       {/* content */}
       <figure className="relative top-0 left-0">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
+          src={
+            product?.images.length > 0
+              ? product?.images[0]?.image
+              : "product_default.jpg"
+          }
+          alt={product?.name}
         />
         <div className="absolute top-2 left-0 flex justify-between w-full px-2 font-semibold  uppercase">
           <div className="badge badge-success text-white text-sm">
@@ -28,7 +32,7 @@ const ProductCard = () => {
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
-            In Stock
+            {product?.stock > 0 ? "In Stock" : "Out of Stock"}
           </div>
           <div className="badge badge-error text-white text-sm">
             <svg
@@ -92,16 +96,16 @@ const ProductCard = () => {
       <div className="card-body pt-3">
         <div className="flex justify-end items-center gap-2">
           <div className="badge badge-neutral badge-outline font-semibold bg-gray-100 hover:shadow-xl transition-shadow duration-300">
-            HITACHI
+            {product.brand ? product.brand : "HITACHI"}
           </div>
         </div>
         <NavLink to="/">
           <h2 className="card-title transition-colors duration-300 group-hover:text-blue-600">
-            PIAA LED Bulb 6000K LEH120E H4
+            {product?.name ? product.name : "PIAA LED Bulb 6000K LEH120E H4"}
           </h2>
         </NavLink>
         <h3 className="text-xl font-bold text-blue-600 inter-font">
-          ৳4,680.00
+          ৳{product?.price && product.price.toFixed(2)}
         </h3>
         {/* Product Quantity Starts */}
         <div className="bg-gray-100 p-2 rounded-2xl flex justify-center items-center gap-2 font-semibold text-md">
