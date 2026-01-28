@@ -4,6 +4,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "../../components/ProductCard";
 import LoadingCards from "../../components/LoadingCards";
 import axios from "axios";
+import ErrorAlert from "../../components/ErrorAlert";
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,18 +14,20 @@ const BestSellingProducts = () => {
   const swiperRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
       .then((res) => {
         setProducts(res.data.results);
-        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingCards />;
+  if (error) return <ErrorAlert error={error} />;
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">

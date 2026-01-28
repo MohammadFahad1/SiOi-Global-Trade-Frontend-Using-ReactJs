@@ -13,6 +13,7 @@ const LatestProducts = () => {
   const swiperRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
@@ -21,10 +22,11 @@ const LatestProducts = () => {
         setProducts(res.data.results);
         setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err));
   }, []);
 
   if (loading) return <LoadingCards />;
+  if (error) return <ErrorAlert error={error} />;
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
