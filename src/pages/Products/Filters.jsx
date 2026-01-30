@@ -69,7 +69,31 @@ const Filters = () => {
               className="overflow-hidden"
               style={{ height: "auto", opacity: 1 }}
             >
-              <div className="p-3 text-center text-xs text-gray-600">
+              <div className="p-3 flex items-center gap-2 justify-between text-center text-sm text-gray-600 inter-font">
+                <input
+                  type="number"
+                  name="from"
+                  id="from"
+                  className="border rounded w-1/2 px-2 py-1"
+                  placeholder="From"
+                />
+                <input
+                  type="number"
+                  name="to"
+                  id="to"
+                  className="border rounded w-1/2 px-2 py-1"
+                  placeholder="To"
+                />
+              </div>
+              <div className="px-3">
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer"
+                />
+              </div>
+              <div className="p-3 text-center text-xs text-gray-600 inter-font">
                 ৳2,500 - ৳13,500
               </div>
             </div>

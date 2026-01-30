@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filters from "./Filters";
+import apiClient from "../../services/api-client";
+import ProductCard from "../../components/ProductCard";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    apiClient
+      .get("/products/")
+      .then((res) => {
+        setProducts(res.data.results);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <section>
       {/* Heading Section of the page */}
@@ -49,7 +64,7 @@ const Products = () => {
                       className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-primary-500 focus:border-primary-500"
                     >
                       <option value="asc">Ascending</option>
-                      <option value="desc">descending</option>
+                      <option value="desc">Descending</option>
                     </select>
                   </label>
                 </div>
@@ -59,21 +74,54 @@ const Products = () => {
           </div>
 
           {/* Products Cards Starts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <h1>Product 1</h1>
-            <h1>Product 2</h1>
-            <h1>Product 3</h1>
-            <h1>Product 4</h1>
-            <h1>Product 5</h1>
-            <h1>Product 6</h1>
-            <h1>Product 7</h1>
-            <h1>Product 8</h1>
-            <h1>Product 9</h1>
-            <h1>Product 10</h1>
-            <h1>Product 11</h1>
-            <h1>Product 12</h1>
+          {loading && (
+            <div className="flex justify-center items-center">
+              <span className="loading loading-spinner text-info h-20 w-20"></span>
+            </div>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+            {products.length === 0
+              ? null
+              : products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
           </div>
           {/* Products Cards Ends */}
+
+          {/* Pagination Section Starts */}
+          <div className="join flex justify-center gap-2 my-10">
+            <button className="join-item btn btn-outline">Previous page</button>
+            <input
+              className="join-item btn btn-square"
+              type="radio"
+              name="options"
+              aria-label="1"
+              checked="checked"
+            />
+            <input
+              className="join-item btn btn-square"
+              type="radio"
+              name="options"
+              aria-label="2"
+            />
+            <button className="join-item btn btn-disabled text-black text-2xl p-0">
+              ...
+            </button>
+            <input
+              className="join-item btn btn-square"
+              type="radio"
+              name="options"
+              aria-label="3"
+            />
+            <input
+              className="join-item btn btn-square"
+              type="radio"
+              name="options"
+              aria-label="4"
+            />
+            <button className="join-item btn btn-outline">Next</button>
+          </div>
+          {/* Pagination Section Ends */}
         </div>
         {/* Products Section Ends */}
       </div>
