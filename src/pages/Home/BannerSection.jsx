@@ -9,7 +9,7 @@ const BannerSection = () => {
           <div className="absolute inset-0">
             <img
               alt="Professional automotive service and car parts maintenance"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               data-nimg="fill"
               className="object-cover"
