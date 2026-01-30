@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import { NavLink } from "react-router";
-import axios from "axios";
 import LoadingCards from "../../components/LoadingCards";
 import ErrorAlert from "../../components/ErrorAlert";
+import apiClient from "../../services/api-client";
 
 const FeatublueProduct = () => {
   const [products, setProducts] = useState([]);
@@ -11,8 +11,8 @@ const FeatublueProduct = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
+    apiClient
+      .get(`/products/`)
       .then((res) => {
         setProducts(res.data.results);
       })

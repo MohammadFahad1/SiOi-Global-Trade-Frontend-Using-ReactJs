@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import "animate.css";
+import Contact from "../pages/Contact";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
   );

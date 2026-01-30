@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "../../components/ProductCard";
+import LoadingCards from "../../components/LoadingCards";
+import apiClient from "../../services/api-client";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import axios from "axios";
-import LoadingCards from "../../components/LoadingCards";
+import ErrorAlert from "../../components/ErrorAlert";
 const LatestProducts = () => {
   const swiperRef = useRef(null);
   const [products, setProducts] = useState([]);
@@ -16,8 +17,8 @@ const LatestProducts = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_ROOT_URL}/products/`)
+    apiClient
+      .get(`/products/`)
       .then((res) => {
         setProducts(res.data.results);
         setLoading(false);

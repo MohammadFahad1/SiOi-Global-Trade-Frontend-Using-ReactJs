@@ -1,81 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import apiClient from "../../services/api-client";
+import LoadingCards from "../../components/LoadingCards";
+import ErrorAlert from "../../components/ErrorAlert";
 
 const FilterParts = () => {
-  const partTypes = [
-    {
-      id: 1,
-      title: "Body Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 2,
-      title: "Engine Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 3,
-      title: "Transmission Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 4,
-      title: "Brake Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 5,
-      title: "Suspension Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 6,
-      title: "Steering Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 7,
-      title: "Electrical Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 8,
-      title: "Interior Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 9,
-      title: "Exterior Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 10,
-      title: "Lighting Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 11,
-      title: "Mirrors & Glass Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-    {
-      id: 12,
-      title: "Wheels & Tire Parts",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-    },
-  ];
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    apiClient
+      .get("/categories/")
+      .then((res) => {
+        setCategories(res.data);
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <LoadingCards />;
+  if (error) return <ErrorAlert error={error} />;
+
   return (
     <section className="px-10 pb-10">
       {/* Section Info Starts */}
@@ -138,10 +84,10 @@ const FilterParts = () => {
 
       {/* Filter Cards Starts */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
-        {partTypes?.map((part) => (
+        {categories?.map((category) => (
           <NavLink
             to="/"
-            key={part.id}
+            key={category.id}
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="50"
@@ -150,13 +96,13 @@ const FilterParts = () => {
             <div className="card">
               <figure className="p-0">
                 <img
-                  src={part.image}
-                  alt={part.title}
-                  className="rounded-t-xl w-full"
+                  src={category.image}
+                  alt={category.name}
+                  className="rounded-t-xl h-30 w-full object-cover bg-amber-50"
                 />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title mb-5">{part.title}</h2>
+                <h2 className="card-title mb-5">{category.name}</h2>
               </div>
             </div>
             <div className="p-3 bg-blue-600 w-12 h-12 rounded-full  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:flex group-hover:items-center group-hover:justify-center">
