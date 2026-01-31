@@ -2,20 +2,32 @@ import React, { useEffect, useState } from "react";
 import Filters from "./Filters";
 import apiClient from "../../services/api-client";
 import ProductCard from "../../components/ProductCard";
+import Pagination from "../../components/Pagination";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const FetchProducts = async () => {
+    try {
+      setLoading(true);
+      setProducts([]);
+      const response = await apiClient.get(`/products/?page=${currentPage}`);
+      const data = response.data;
+      setProducts(data.results);
+      setTotalPages(Math.ceil(data.count / data.results.length));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    apiClient
-      .get("/products/")
-      .then((res) => {
-        setProducts(res.data.results);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, []);
+    FetchProducts();
+  }, [currentPage]);
 
   return (
     <section>
@@ -89,38 +101,13 @@ const Products = () => {
           {/* Products Cards Ends */}
 
           {/* Pagination Section Starts */}
-          <div className="join flex justify-center gap-2 my-10">
-            <button className="join-item btn btn-outline">Previous page</button>
-            <input
-              className="join-item btn btn-square"
-              type="radio"
-              name="options"
-              aria-label="1"
-              checked="checked"
+          {products.length > 0 && (
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
             />
-            <input
-              className="join-item btn btn-square"
-              type="radio"
-              name="options"
-              aria-label="2"
-            />
-            <button className="join-item btn btn-disabled text-black text-2xl p-0">
-              ...
-            </button>
-            <input
-              className="join-item btn btn-square"
-              type="radio"
-              name="options"
-              aria-label="3"
-            />
-            <input
-              className="join-item btn btn-square"
-              type="radio"
-              name="options"
-              aria-label="4"
-            />
-            <button className="join-item btn btn-outline">Next</button>
-          </div>
+          )}
           {/* Pagination Section Ends */}
         </div>
         {/* Products Section Ends */}

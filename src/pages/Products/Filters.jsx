@@ -42,7 +42,7 @@ const Filters = () => {
 
       {/* Different Filter Parameters wil go here */}
       <div className="bg-linear-to-b from-white to-gray-50/50 border-x border-b border-gray-200/60 rounded-b-2xl shadow-xl backdrop-blur-sm max-h-[80vh] overflow-y-auto">
-        <div className="p-6 space-y-8">
+        <div className="p-2 md:p-3 lg:p-4 space-y-8">
           {/* Price range filter section starts */}
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <div className="flex items-center justify-between p-3 bg-linear-to-r from-green-50 to-emerald-50 border-b border-green-200">
