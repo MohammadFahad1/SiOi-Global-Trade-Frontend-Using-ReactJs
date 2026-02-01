@@ -85,7 +85,7 @@ const Hero = () => {
         {slides?.map((slide) => (
           <SwiperSlide>
             <div
-              className="hero min-h-screen"
+              className="hero min-h-[80vh] md:min-h-screen"
               style={{
                 backgroundImage: `url(${slide.image})`,
               }}

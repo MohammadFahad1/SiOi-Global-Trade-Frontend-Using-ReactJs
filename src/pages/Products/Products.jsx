@@ -102,13 +102,12 @@ const Products = () => {
           {/* Products Cards Ends */}
 
           {/* Pagination Section Starts */}
-          {products.length > 0 && (
-            <Pagination
-              totalPages={totalPages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          )}
+
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
           {/* Pagination Section Ends */}
         </div>
         {/* Products Section Ends */}
