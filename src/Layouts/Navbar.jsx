@@ -6,16 +6,24 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="p-2">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about" className="p-2">
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/products">Products</NavLink>
+        <NavLink to="/products" className="p-2">
+          Products
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/contact">Contact Us</NavLink>
+        <NavLink to="/contact" className="p-2">
+          Contact Us
+        </NavLink>
       </li>
     </>
   );
@@ -208,7 +216,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 shadow"
+              className="menu menu-md dropdown-content bg-blue-600 rounded-t-none text-white rounded-box z-1 mt-3 p-2 shadow min-w-62.5 border-t border-t-[#111828]"
             >
               {navLinks}
             </ul>
