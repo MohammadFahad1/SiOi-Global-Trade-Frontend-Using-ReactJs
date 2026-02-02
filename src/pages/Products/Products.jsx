@@ -1,34 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Filters from "./Filters";
-import apiClient from "../../services/api-client";
 import ProductCard from "../../components/ProductCard";
 import Pagination from "../../components/Pagination";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-
-  const FetchProducts = async () => {
-    try {
-      setLoading(true);
-      setProducts([]);
-      const response = await apiClient.get(`/products/?page=${currentPage}`);
-      const data = response.data;
-      setProducts(data.results);
-      setTotalPages(Math.ceil(data.count / data.results.length));
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    FetchProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage]);
+  const { products, loading, totalPages } = useFetchProducts(currentPage);
 
   return (
     <section>
