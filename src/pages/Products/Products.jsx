@@ -4,17 +4,21 @@ import ProductCard from "../../components/ProductCard";
 import Pagination from "../../components/Pagination";
 import useFetchProducts from "../../hooks/useFetchProducts";
 import useFetchCategories from "../../hooks/useFetchCategories";
+import useFetchBrands from "../../hooks/useFetchBrands";
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState([0, 100000]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
   const { products, loading, totalPages } = useFetchProducts(
     currentPage,
     priceRange,
     selectedCategory,
+    selectedBrand,
   );
   const categories = useFetchCategories();
+  const brands = useFetchBrands();
 
   const handlePriceChange = (index, value) => {
     setPriceRange((prev) => {
@@ -27,6 +31,11 @@ const Products = () => {
 
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);
+    setCurrentPage(1);
+  };
+
+  const handleBrandChange = (value) => {
+    setSelectedBrand(value);
     setCurrentPage(1);
   };
 
@@ -52,6 +61,9 @@ const Products = () => {
             categories={categories}
             selectedCategory={selectedCategory}
             handleCategoryChange={handleCategoryChange}
+            brands={brands}
+            selectedBrand={selectedBrand}
+            handleBrandChange={handleBrandChange}
           />
         </div>
         {/* Filters Section Ends */}

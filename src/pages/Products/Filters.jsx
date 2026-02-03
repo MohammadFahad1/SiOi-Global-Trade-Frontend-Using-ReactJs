@@ -6,6 +6,9 @@ const Filters = ({
   categories,
   selectedCategory,
   handleCategoryChange,
+  brands,
+  selectedBrand,
+  handleBrandChange,
 }) => {
   return (
     <div className="sticky top-6">
@@ -158,67 +161,48 @@ const Filters = ({
                   <label
                     className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
                     tabIndex={0}
-                    style={{ transform: "none" }}
+                    onChange={() => handleBrandChange("")}
                   >
                     <div className="flex items-center flex-1">
-                      <div className="w-4 h-4 rounded border-2 mr-2 flex items-center justify-center transition-colors border-gray-300 group-hover:border-blue-400" />
-                      <input className="sr-only" type="checkbox" />
+                      <input
+                        type="radio"
+                        name="brands"
+                        value=""
+                        checked={selectedBrand == ""}
+                        className="radio radio-xs bg-blue-100 border-blue-300 checked:bg-blue-200 checked:text-blue-600 checked:border-blue-600 mr-1"
+                      />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        ADVICS
+                        All Brands
                       </span>
                     </div>
                     <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
-                      17
+                      {/* {category.product_count} */}
                     </span>
                   </label>
-                  <label
-                    className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
-                    tabIndex={0}
-                    style={{ transform: "none" }}
-                  >
-                    <div className="flex items-center flex-1">
-                      <div className="w-4 h-4 rounded border-2 mr-2 flex items-center justify-center transition-colors border-gray-300 group-hover:border-blue-400" />
-                      <input className="sr-only" type="checkbox" />
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        BREMBO
+                  {brands.map((brand) => (
+                    <label
+                      className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
+                      tabIndex={0}
+                      key={brand.key}
+                      onChange={() => handleBrandChange(brand.id)}
+                    >
+                      <div className="flex items-center flex-1">
+                        <input
+                          type="radio"
+                          name="brands"
+                          value={brand.id}
+                          checked={selectedBrand == brand.id}
+                          className="radio radio-xs bg-blue-100 border-blue-300 checked:bg-blue-200 checked:text-blue-600 checked:border-blue-600 mr-1"
+                        />
+                        <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
+                          {brand.name}
+                        </span>
+                      </div>
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
+                        {brand.product_count}
                       </span>
-                    </div>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
-                      34
-                    </span>
-                  </label>
-                  <label
-                    className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
-                    tabIndex={0}
-                    style={{ transform: "none" }}
-                  >
-                    <div className="flex items-center flex-1">
-                      <div className="w-4 h-4 rounded border-2 mr-2 flex items-center justify-center transition-colors border-gray-300 group-hover:border-blue-400" />
-                      <input className="sr-only" type="checkbox" />
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        Mitsubishi
-                      </span>
-                    </div>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
-                      2
-                    </span>
-                  </label>
-                  <label
-                    className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
-                    tabIndex={0}
-                    style={{ transform: "none" }}
-                  >
-                    <div className="flex items-center flex-1">
-                      <div className="w-4 h-4 rounded border-2 mr-2 flex items-center justify-center transition-colors border-gray-300 group-hover:border-blue-400" />
-                      <input className="sr-only" type="checkbox" />
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        TOYOTA
-                      </span>
-                    </div>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
-                      22
-                    </span>
-                  </label>
+                    </label>
+                  ))}
                 </div>
               </div>
             </div>
