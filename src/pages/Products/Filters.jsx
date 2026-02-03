@@ -96,7 +96,6 @@ const Filters = ({
                 <input
                   type="range"
                   name="from-range"
-                  disabled={true}
                   min={0}
                   max={100000}
                   step={100}
@@ -126,7 +125,6 @@ const Filters = ({
                 <input
                   type="range"
                   name="to-range"
-                  disabled={true}
                   min={0}
                   max={100000}
                   step={100}

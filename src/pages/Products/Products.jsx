@@ -5,18 +5,28 @@ import Pagination from "../../components/Pagination";
 import useFetchProducts from "../../hooks/useFetchProducts";
 import useFetchCategories from "../../hooks/useFetchCategories";
 import useFetchBrands from "../../hooks/useFetchBrands";
+import useDebounce from "../../hooks/useDebounce";
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState([0, 100000]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [ordering, setOrdering] = useState("-id");
+
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+  const debouncedPriceRange = useDebounce(priceRange, 500);
+
   const { products, loading, totalPages } = useFetchProducts(
     currentPage,
-    priceRange,
+    debouncedPriceRange,
     selectedCategory,
     selectedBrand,
+    debouncedSearchQuery,
+    ordering,
   );
+
   const categories = useFetchCategories();
   const brands = useFetchBrands();
 
@@ -36,6 +46,11 @@ const Products = () => {
 
   const handleBrandChange = (value) => {
     setSelectedBrand(value);
+    setCurrentPage(1);
+  };
+
+  const handleSearchQuery = (value) => {
+    setSearchQuery(value);
     setCurrentPage(1);
   };
 
@@ -84,6 +99,8 @@ const Products = () => {
                   <input
                     type="search"
                     name="search"
+                    value={searchQuery}
+                    onChange={(e) => handleSearchQuery(e.target.value)}
                     placeholder="Search by product name"
                     className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-primary-500 focus:border-primary-500"
                   />
@@ -93,9 +110,27 @@ const Products = () => {
                     <select
                       name="sort"
                       className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-primary-500 focus:border-primary-500"
+                      onChange={(e) => setOrdering(e.target.value)}
+                      value={ordering}
                     >
-                      <option value="asc">Ascending</option>
-                      <option value="desc">Descending</option>
+                      <option value="-id" selected={ordering == "-id"}>
+                        Newest
+                      </option>
+                      {/* <option value="id" selected={ordering == "id"}>
+                        Oldest
+                      </option> */}
+                      <option value="price" selected={ordering == "price"}>
+                        Price: Low to High
+                      </option>
+                      <option value="-price" selected={ordering == "-price"}>
+                        Price: High to Low
+                      </option>
+                      {/* <option value="name" selected={ordering == "name"}>
+                        A-Z
+                      </option>
+                      <option value="-name" selected={ordering == "-name"}>
+                        Z-A
+                      </option> */}
                     </select>
                   </label>
                 </div>
