@@ -8,9 +8,11 @@ import useFetchCategories from "../../hooks/useFetchCategories";
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState([0, 100000]);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const { products, loading, totalPages } = useFetchProducts(
     currentPage,
     priceRange,
+    selectedCategory,
   );
   const categories = useFetchCategories();
 
@@ -18,8 +20,13 @@ const Products = () => {
     setPriceRange((prev) => {
       const newRange = [...prev];
       newRange[index] = value;
+      setCurrentPage(1);
       return newRange;
     });
+  };
+
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
     setCurrentPage(1);
   };
 
@@ -43,6 +50,8 @@ const Products = () => {
             priceRange={priceRange}
             handlePriceChange={handlePriceChange}
             categories={categories}
+            selectedCategory={selectedCategory}
+            handleCategoryChange={handleCategoryChange}
           />
         </div>
         {/* Filters Section Ends */}

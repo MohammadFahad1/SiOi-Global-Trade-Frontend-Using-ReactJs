@@ -1,6 +1,12 @@
 import React from "react";
 
-const Filters = ({ priceRange, handlePriceChange, categories }) => {
+const Filters = ({
+  priceRange,
+  handlePriceChange,
+  categories,
+  selectedCategory,
+  handleCategoryChange,
+}) => {
   return (
     <div className="sticky top-6">
       {/* Heading starts */}
@@ -230,17 +236,40 @@ const Filters = ({ priceRange, handlePriceChange, categories }) => {
               </div>
               <div className="max-h-64 overflow-y-auto">
                 <div className="p-3 space-y-2">
+                  <label
+                    className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
+                    tabIndex={0}
+                    onChange={() => handleCategoryChange("")}
+                  >
+                    <div className="flex items-center flex-1">
+                      <input
+                        type="radio"
+                        name="categories"
+                        value=""
+                        checked={selectedCategory == ""}
+                        className="radio radio-xs bg-blue-100 border-blue-300 checked:bg-blue-200 checked:text-blue-600 checked:border-blue-600 mr-1"
+                      />
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
+                        All Categories
+                      </span>
+                    </div>
+                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
+                      {/* {category.product_count} */}
+                    </span>
+                  </label>
                   {categories.map((category) => (
                     <label
                       className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
                       tabIndex={0}
                       key={category.key}
+                      onChange={() => handleCategoryChange(category.id)}
                     >
                       <div className="flex items-center flex-1">
                         <input
                           type="radio"
                           name="categories"
                           value={category.id}
+                          checked={selectedCategory == category.id}
                           className="radio radio-xs bg-blue-100 border-blue-300 checked:bg-blue-200 checked:text-blue-600 checked:border-blue-600 mr-1"
                         />
                         <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
