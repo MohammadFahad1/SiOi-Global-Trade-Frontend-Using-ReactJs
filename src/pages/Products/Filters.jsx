@@ -1,6 +1,6 @@
 import React from "react";
 
-const Filters = () => {
+const Filters = ({ priceRange, handlePriceChange, categories }) => {
   return (
     <div className="sticky top-6">
       {/* Heading starts */}
@@ -71,30 +71,68 @@ const Filters = () => {
             >
               <div className="p-3 flex items-center gap-2 justify-between text-center text-sm text-gray-600 inter-font">
                 <input
-                  type="number"
+                  type="text"
+                  min="0"
+                  max={100000}
+                  value={priceRange[0]}
+                  onChange={(e) =>
+                    parseInt(e.target.value) < priceRange[1] &&
+                    handlePriceChange(0, parseInt(e.target.value))
+                  }
                   name="from"
                   id="from"
-                  className="border rounded w-1/2 px-2 py-1"
+                  className="border rounded w-1/3 px-2 py-1"
                   placeholder="From"
                 />
                 <input
-                  type="number"
+                  type="range"
+                  name="from-range"
+                  disabled={true}
+                  min={0}
+                  max={100000}
+                  step={100}
+                  value={priceRange[0]}
+                  className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer"
+                  onChange={(e) =>
+                    parseInt(e.target.value) < priceRange[1] &&
+                    handlePriceChange(0, parseInt(e.target.value))
+                  }
+                />
+              </div>
+              <div className="p-3 flex items-center gap-2 justify-between text-center text-sm text-gray-600 inter-font">
+                <input
+                  type="text"
+                  min={0}
+                  max={100000}
+                  value={priceRange[1]}
+                  onChange={(e) =>
+                    parseInt(e.target.value) > priceRange[0] &&
+                    handlePriceChange(1, parseInt(e.target.value))
+                  }
                   name="to"
                   id="to"
-                  className="border rounded w-1/2 px-2 py-1"
-                  placeholder="To"
+                  className="border rounded w-1/3 px-2 py-1"
+                  placeholder="to"
                 />
-              </div>
-              <div className="px-3">
                 <input
                   type="range"
+                  name="to-range"
+                  disabled={true}
                   min={0}
-                  max={100}
+                  max={100000}
+                  step={100}
+                  value={priceRange[1]}
                   className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer"
+                  onChange={(e) =>
+                    parseInt(e.target.value) > priceRange[0] &&
+                    handlePriceChange(1, parseInt(e.target.value))
+                  }
                 />
               </div>
+
+              <div className="px-3"></div>
               <div className="p-3 text-center text-xs text-gray-600 inter-font">
-                ৳2,500 - ৳13,500
+                ৳{priceRange[0]} - ৳{priceRange[1]}
               </div>
             </div>
           </div>
@@ -186,27 +224,34 @@ const Filters = () => {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-2" />
                   <h3 className="text-sm font-bold text-gray-900">
-                    Product type
+                    Product Category
                   </h3>
                 </div>
               </div>
               <div className="max-h-64 overflow-y-auto">
                 <div className="p-3 space-y-2">
-                  <label
-                    className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
-                    tabIndex={0}
-                  >
-                    <div className="flex items-center flex-1">
-                      <div className="w-4 h-4 rounded border-2 mr-2 flex items-center justify-center transition-colors border-gray-300 group-hover:border-blue-400" />
-                      <input className="sr-only" type="checkbox" />
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        Brake Pad
+                  {categories.map((category) => (
+                    <label
+                      className="flex items-center justify-between p-2 rounded-xl border-2 cursor-pointer transition-all duration-200 group bg-white border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
+                      tabIndex={0}
+                      key={category.key}
+                    >
+                      <div className="flex items-center flex-1">
+                        <input
+                          type="radio"
+                          name="categories"
+                          value={category.id}
+                          className="radio radio-xs bg-blue-100 border-blue-300 checked:bg-blue-200 checked:text-blue-600 checked:border-blue-600 mr-1"
+                        />
+                        <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
+                          {category.name}
+                        </span>
+                      </div>
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
+                        {category.product_count}
                       </span>
-                    </div>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
-                      46
-                    </span>
-                  </label>
+                    </label>
+                  ))}
                 </div>
               </div>
             </div>

@@ -3,10 +3,25 @@ import Filters from "./Filters";
 import ProductCard from "../../components/ProductCard";
 import Pagination from "../../components/Pagination";
 import useFetchProducts from "../../hooks/useFetchProducts";
+import useFetchCategories from "../../hooks/useFetchCategories";
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { products, loading, totalPages } = useFetchProducts(currentPage);
+  const [priceRange, setPriceRange] = useState([0, 100000]);
+  const { products, loading, totalPages } = useFetchProducts(
+    currentPage,
+    priceRange,
+  );
+  const categories = useFetchCategories();
+
+  const handlePriceChange = (index, value) => {
+    setPriceRange((prev) => {
+      const newRange = [...prev];
+      newRange[index] = value;
+      return newRange;
+    });
+    setCurrentPage(1);
+  };
 
   return (
     <section>
@@ -24,7 +39,11 @@ const Products = () => {
       <div className="px-6 md:px-8 lg:px-10 grid grid-cols-12 gap-5 my-7 md:my-10">
         {/* Filters Section Starts */}
         <div className="col-span-12 md:col-span-4 lg:col-span-3">
-          <Filters />
+          <Filters
+            priceRange={priceRange}
+            handlePriceChange={handlePriceChange}
+            categories={categories}
+          />
         </div>
         {/* Filters Section Ends */}
 

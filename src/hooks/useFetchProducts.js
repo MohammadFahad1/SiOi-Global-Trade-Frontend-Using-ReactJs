@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
-const useFetchProducts = (currentPage) => {
+const useFetchProducts = (currentPage, priceRange) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
     const FetchProducts = async () => {
+      setLoading(true);
+      setProducts([]);
+      const url = `/products/?price__gte=${priceRange[0]}&price__lte=${priceRange[1]}&page=${currentPage}`;
       try {
-        setLoading(true);
-        setProducts([]);
-        const response = await apiClient.get(`/products/?page=${currentPage}`);
+        const response = await apiClient.get(url);
         const data = response.data;
         setProducts(data.results);
         setTotalPages(Math.ceil(data.count / 10));
@@ -22,7 +23,7 @@ const useFetchProducts = (currentPage) => {
       }
     };
     FetchProducts();
-  }, [currentPage]);
+  }, [currentPage, priceRange]);
 
   return { products, loading, totalPages };
 };
