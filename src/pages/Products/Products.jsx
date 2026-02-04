@@ -18,7 +18,7 @@ const Products = () => {
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
   const debouncedPriceRange = useDebounce(priceRange, 500);
 
-  const { products, loading, totalPages } = useFetchProducts(
+  const { products, loading, totalPages, totalProducts } = useFetchProducts(
     currentPage,
     debouncedPriceRange,
     selectedCategory,
@@ -88,7 +88,7 @@ const Products = () => {
           {/* Section Heading */}
           <div className="px-6 py-8 shadow-xl rounded-xl mb-6 flex flex-wrap justify-center items-center md:flex-nowrap md:justify-between">
             <h3 className="text-xl font-semibold flex gap-3 items-center">
-              <span className="text-4xl text-blue-600">75</span>{" "}
+              <span className="text-4xl text-blue-600">{totalProducts}</span>{" "}
               <span>products found</span>
             </h3>
 
@@ -114,23 +114,14 @@ const Products = () => {
                       value={ordering}
                     >
                       <option value="-id" selected={ordering == "-id"}>
-                        Newest
+                        Latest
                       </option>
-                      {/* <option value="id" selected={ordering == "id"}>
-                        Oldest
-                      </option> */}
                       <option value="price" selected={ordering == "price"}>
                         Price: Low to High
                       </option>
                       <option value="-price" selected={ordering == "-price"}>
                         Price: High to Low
                       </option>
-                      {/* <option value="name" selected={ordering == "name"}>
-                        A-Z
-                      </option>
-                      <option value="-name" selected={ordering == "-name"}>
-                        Z-A
-                      </option> */}
                     </select>
                   </label>
                 </div>

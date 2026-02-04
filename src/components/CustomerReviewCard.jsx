@@ -2,11 +2,7 @@ import React from "react";
 
 const CustomerReviewCard = () => {
   return (
-    <div
-      style={{ width: "370.667px", marginRight: "32px" }}
-      role="group"
-      aria-label="4 / 6"
-    >
+    <div style={{ maxWidth: "380px" }} role="group" aria-label="4 / 6">
       <article
         className="group relative bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-500 border border-gray-200 hover:border-blue-300/50 h-full flex flex-col"
         style={{ transform: "none" }}
