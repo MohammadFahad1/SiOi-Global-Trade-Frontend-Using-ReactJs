@@ -56,11 +56,7 @@ const Navbar = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input
-            type="search"
-            requiblue="blue"
-            placeholder="Search Dorin Products"
-          />
+          <input type="search" placeholder="Search DORIN Products" />
         </label>
 
         {/* Contact Info */}
@@ -170,7 +166,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a
+            <NavLink
+              to="/login"
               className="tooltip btn btn-soft btn-info text-blue-600 bg-white hover:bg-blue-600 hover:text-white hover:border-blue-600 ml-2 hidden md:flex"
               data-tip="Login"
             >
@@ -189,7 +186,7 @@ const Navbar = () => {
                 />
               </svg>{" "}
               Login
-            </a>
+            </NavLink>
           </li>
         </ul>
       </section>

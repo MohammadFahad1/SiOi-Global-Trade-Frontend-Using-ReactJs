@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <>
-      <footer className="footer sm:footer-horizontal bg-[#111828] text-base-content p-10">
+      <footer className="footer sm:footer-horizontal bg-[#111828] text-white p-10">
         <aside>
           <Link to="/">
             <img
