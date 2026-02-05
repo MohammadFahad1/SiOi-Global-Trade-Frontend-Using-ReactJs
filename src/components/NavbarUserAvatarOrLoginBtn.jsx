@@ -1,9 +1,9 @@
 import React from "react";
-import useAuth from "../hooks/useAuth";
 import { NavLink } from "react-router";
+import useAuthContext from "../hooks/useAuthContext";
 
 const NavbarUserAvatarOrLoginBtn = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
   return (
     <>
       {user ? (

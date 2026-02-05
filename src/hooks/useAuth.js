@@ -16,24 +16,23 @@ const useAuth = () => {
     try {
       const res = await apiClient.get("/auth/users/me/", {
         headers: {
-          Authorization: `JWT ${authTokens.access}`,
+          Authorization: `JWT ${authTokens?.access}`,
         },
       });
       setUser(res.data);
     } catch (err) {
-      console.log(
-        "Error while fetching user profile: ",
-        err.response?.data?.detail,
-      );
+      console.log("Error while fetching user profile: ", err);
     }
   };
 
   useEffect(() => {
-    const handleUserFetch = async () => {
-      fetchUserProfile();
-    };
-
-    handleUserFetch();
+    if (authTokens) {
+      const handleUserFetch = async () => {
+        fetchUserProfile();
+      };
+      handleUserFetch();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authTokens]);
 
   //   Login user

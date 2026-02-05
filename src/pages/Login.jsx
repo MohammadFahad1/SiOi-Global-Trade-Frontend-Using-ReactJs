@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { user, loginUser } = useAuthContext();
+  const { loginUser } = useAuthContext();
 
   const {
     register,
