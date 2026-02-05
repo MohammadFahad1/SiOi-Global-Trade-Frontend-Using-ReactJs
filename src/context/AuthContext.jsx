@@ -1,10 +1,62 @@
-import { createContext } from "react";
-import useAuth from "../hooks/useAuth";
+import { createContext, useState } from "react";
+import apiClient from "../services/api-client";
+import { useEffect } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const allContext = useAuth();
+  const [user, setUser] = useState(null);
+
+  const getToken = () => {
+    const token = localStorage.getItem("authTokens");
+    return token ? JSON.parse(token) : null;
+  };
+
+  const [authTokens, setAuthToken] = useState(getToken());
+
+  // Fetch user profile
+  const fetchUserProfile = async () => {
+    try {
+      const res = await apiClient.get("/auth/users/me/", {
+        headers: {
+          Authorization: `JWT ${authTokens.access}`,
+        },
+      });
+      setUser(res.data);
+    } catch (err) {
+      console.log(
+        "Error while fetching user profile: ",
+        err.response?.data?.detail,
+      );
+    }
+  };
+
+  useEffect(() => {
+    const handleUserFetch = async () => {
+      fetchUserProfile();
+    };
+
+    handleUserFetch();
+  }, [authTokens]);
+
+  //   Login user
+  const loginUser = async (userCredentials) => {
+    try {
+      const res = await apiClient.post("/auth/jwt/create/", userCredentials);
+
+      if (res.data.access) {
+        localStorage.setItem("authTokens", JSON.stringify(res.data));
+        setAuthToken(res.data);
+      }
+    } catch (err) {
+      console.log("Error while logging in user: ", err.response.data.detail);
+    }
+  };
+
+  const allContext = {
+    user,
+    loginUser,
+  };
 
   return (
     <AuthContext.Provider value={allContext}>{children}</AuthContext.Provider>

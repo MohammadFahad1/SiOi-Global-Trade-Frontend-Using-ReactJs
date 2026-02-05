@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import LoggedInUserOnNav from "../components/NavbarUserAvatarOrLoginBtn";
+import NavbarUserAvatarOrLoginBtn from "../components/NavbarUserAvatarOrLoginBtn";
 
 const Navbar = () => {
   const navLinks = (
@@ -166,27 +168,7 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <NavLink
-              to="/login"
-              className="tooltip btn btn-soft btn-info text-blue-600 bg-white hover:bg-blue-600 hover:text-white hover:border-blue-600 ml-2 hidden md:flex"
-              data-tip="Login"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-5 w-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                />
-              </svg>{" "}
-              Login
-            </NavLink>
+            <NavbarUserAvatarOrLoginBtn />
           </li>
         </ul>
       </section>
