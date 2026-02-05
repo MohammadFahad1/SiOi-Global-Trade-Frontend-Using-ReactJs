@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import "animate.css";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import PrivateRoute from "../components/PrivateRoute";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -28,6 +30,14 @@ const AppRoutes = () => {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );

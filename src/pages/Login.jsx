@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import useAuthContext from "../hooks/useAuthContext";
 import { useForm } from "react-hook-form";
+import ErrorAlert from "../components/ErrorAlert";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { loginUser } = useAuthContext();
+  const { loginUser, errorMsg, loading } = useAuthContext();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -14,7 +17,15 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await loginUser(data);
+    try {
+      const login = await loginUser(data);
+      if (login) {
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      console.error("Login failed:", err);
+      navigate("/login");
+    }
   };
 
   return (
@@ -191,9 +202,19 @@ const Login = () => {
               )}
             </div>
 
+            {errorMsg && (
+              <p className="w-full mt-4 text-red-600 text-center text-sm font-medium  p-2 rounded bg-red-200">
+                {errorMsg}
+              </p>
+            )}
+
             {/* Submit Button */}
-            <button className="w-full bg-[#155dfc] hover:bg-[#0046e0] active:scale-[0.97] text-white font-bold py-4 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 transition-all duration-300 group mt-4 cursor-pointer">
-              Login
+            <button
+              className={`w-full bg-[#155dfc] hover:bg-[#0046e0] active:scale-[0.97] text-white font-bold py-4 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 transition-all duration-300 group mt-4 cursor-pointer ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+              disabled={loading}
+              type="submit"
+            >
+              {loading ? "Logging in..." : "Log In"}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 group-hover:translate-x-1 transition-transform"

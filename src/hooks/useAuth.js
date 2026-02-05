@@ -3,6 +3,8 @@ import apiClient from "../services/api-client";
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getToken = () => {
     const token = localStorage.getItem("authTokens");
@@ -14,6 +16,7 @@ const useAuth = () => {
   // Fetch user profile
   const fetchUserProfile = async () => {
     try {
+      setErrorMsg("");
       const res = await apiClient.get("/auth/users/me/", {
         headers: {
           Authorization: `JWT ${authTokens?.access}`,
@@ -21,7 +24,7 @@ const useAuth = () => {
       });
       setUser(res.data);
     } catch (err) {
-      console.log("Error while fetching user profile: ", err);
+      setErrorMsg(err.response?.data.detail || "Failed to fetch user profile");
     }
   };
 
@@ -38,18 +41,25 @@ const useAuth = () => {
   //   Login user
   const loginUser = async (userCredentials) => {
     try {
+      setErrorMsg("");
+      setLoading(true);
       const res = await apiClient.post("/auth/jwt/create/", userCredentials);
 
       if (res.data.access) {
         localStorage.setItem("authTokens", JSON.stringify(res.data));
         setAuthToken(res.data);
+        await fetchUserProfile();
+        return true;
       }
     } catch (err) {
-      console.log("Error while logging in user: ", err.response.data.detail);
+      setErrorMsg(err.response?.data.detail || "Failed to login user");
+      return false;
+    } finally {
+      setLoading(false);
     }
   };
 
-  return { user, loginUser };
+  return { user, loginUser, errorMsg, loading };
 };
 
 export default useAuth;

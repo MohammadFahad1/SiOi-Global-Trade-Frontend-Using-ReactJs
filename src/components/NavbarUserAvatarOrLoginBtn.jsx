@@ -22,19 +22,19 @@ const NavbarUserAvatarOrLoginBtn = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-1 mt-3 w-52 p-2"
+            className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-1 mt-3 w-48 p-3"
           >
             <li>
-              <a className="justify-between">
+              <a className="justify-between py-3">
                 Profile
-                <span className="badge">New</span>
+                {/* <span className="badge">New</span> */}
               </a>
             </li>
             <li>
-              <a>Settings</a>
+              <a className="py-3">Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a className="py-3">Logout</a>
             </li>
           </ul>
         </div>

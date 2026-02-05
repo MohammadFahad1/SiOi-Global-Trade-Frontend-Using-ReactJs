@@ -2,7 +2,7 @@ import React from "react";
 
 const ErrorAlert = ({ error }) => {
   return (
-    <div role="alert" className="alert alert-error my-15 px-10">
+    <div role="alert" className="alert alert-error mt-2 mb-0 px-10">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6 shrink-0 stroke-current"
