@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useAuthContext from "../hooks/useAuthContext";
 import { useForm } from "react-hook-form";
 import ErrorAlert from "../components/ErrorAlert";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -246,9 +246,12 @@ const Login = () => {
 
           <p className="text-center text-gray-500 text-sm font-medium">
             Don't have an account?
-            <button className="text-[#155dfc] font-bold ml-2 hover:underline decoration-2 underline-offset-4 cursor-pointer">
+            <NavLink
+              to="/register"
+              className="text-[#155dfc] font-bold ml-2 hover:underline decoration-2 underline-offset-4 cursor-pointer"
+            >
               Sign up now
-            </button>
+            </NavLink>
           </p>
         </div>
       </div>
