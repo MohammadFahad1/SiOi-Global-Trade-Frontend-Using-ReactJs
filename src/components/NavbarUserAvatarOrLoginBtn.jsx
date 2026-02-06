@@ -1,9 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import useAuthContext from "../hooks/useAuthContext";
 
 const NavbarUserAvatarOrLoginBtn = () => {
-  const { user } = useAuthContext();
+  const { user, logoutUser, setErrorMsg } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogoutUser = () => {
+    logoutUser();
+    navigate("/login");
+    setErrorMsg("");
+  };
   return (
     <>
       {user ? (
@@ -25,16 +32,18 @@ const NavbarUserAvatarOrLoginBtn = () => {
             className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-1 mt-3 w-48 p-3"
           >
             <li>
-              <a className="justify-between py-3">
+              <NavLink to="/dashboard" className="justify-between py-3">
                 Profile
                 {/* <span className="badge">New</span> */}
-              </a>
+              </NavLink>
             </li>
             <li>
               <a className="py-3">Settings</a>
             </li>
             <li>
-              <a className="py-3">Logout</a>
+              <button className="py-3" onClick={handleLogoutUser}>
+                Logout
+              </button>
             </li>
           </ul>
         </div>

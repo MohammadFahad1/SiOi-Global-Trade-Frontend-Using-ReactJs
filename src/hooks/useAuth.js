@@ -17,6 +17,7 @@ const useAuth = () => {
   const fetchUserProfile = async () => {
     try {
       setErrorMsg("");
+      setLoading(true);
       const res = await apiClient.get("/auth/users/me/", {
         headers: {
           Authorization: `JWT ${authTokens?.access}`,
@@ -25,6 +26,8 @@ const useAuth = () => {
       setUser(res.data);
     } catch (err) {
       setErrorMsg(err.response?.data.detail || "Failed to fetch user profile");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,7 +62,13 @@ const useAuth = () => {
     }
   };
 
-  return { user, loginUser, errorMsg, loading };
+  const logoutUser = () => {
+    setAuthToken(null);
+    setUser(null);
+    localStorage.removeItem("authTokens");
+  };
+
+  return { user, loginUser, logoutUser, errorMsg, loading, setErrorMsg };
 };
 
 export default useAuth;
