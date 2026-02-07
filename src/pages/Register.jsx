@@ -1,31 +1,32 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
 import useAuthContext from "../hooks/useAuthContext";
+import { NavLink } from "react-router";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { registerUser, errorMsg, loading } = useAuthContext();
-
-  const navigate = useNavigate();
+  const { registerUser, loading, errorMsg, setErrorMsg } = useAuthContext();
+  const [successMsg, setSuccessMsg] = useState("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
 
   const onSubmit = async (data) => {
+    setSuccessMsg("");
+    delete data.confirmPassword;
     try {
-      const success = await registerUser(data);
-      if (success) {
-        navigate("/login");
-      }
+      await registerUser(data);
+      //   setSuccessMsg(
+      //     "An email has been sent to your registered email address. Please verify your account before logging in.",
+      //   );
     } catch (err) {
-      console.error("Registration failed:", err);
+      setErrorMsg(err);
     }
   };
-
   return (
     <div className="min-h-screen w-full bg-white flex items-center justify-center p-4 md:p-10 relative overflow-hidden">
       <div className="absolute top-[-10%] left-[-10%] w-160 h-160 bg-[#155dfc]/20 rounded-full blur-[120px] animate-pulse duration-10000 z-1" />
@@ -60,7 +61,9 @@ const Register = () => {
                   type="text"
                   placeholder="John"
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 px-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.first_name ? "border-red-500" : ""}`}
-                  {...register("first_name", { required: "Required" })}
+                  {...register("first_name", {
+                    required: "First name is required",
+                  })}
                 />
               </div>
               <div className="group">
@@ -71,7 +74,9 @@ const Register = () => {
                   type="text"
                   placeholder="Doe"
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 px-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.last_name ? "border-red-500" : ""}`}
-                  {...register("last_name", { required: "Required" })}
+                  {...register("last_name", {
+                    required: "Last name is required",
+                  })}
                 />
               </div>
             </div>
@@ -83,9 +88,15 @@ const Register = () => {
               </label>
               <input
                 type="email"
-                placeholder="john@example.com"
+                placeholder="example@sioibd.com"
                 className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 px-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.email ? "border-red-500" : ""}`}
-                {...register("email", { required: "Email is required" })}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email address",
+                  },
+                })}
               />
             </div>
 
@@ -99,7 +110,10 @@ const Register = () => {
                   type="tel"
                   placeholder="+880..."
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 px-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.phone_number ? "border-red-500" : ""}`}
-                  {...register("phone_number", { required: "Required" })}
+                  {...register("phone_number", {
+                    required: "Phone number is required",
+                    maxLength: { value: 15, message: "Max 15 characters" },
+                  })}
                 />
               </div>
               <div className="group">
@@ -110,7 +124,7 @@ const Register = () => {
                   type="text"
                   placeholder="City, Country"
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 px-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.address ? "border-red-500" : ""}`}
-                  {...register("address", { required: "Required" })}
+                  {...register("address", { required: "Address is required" })}
                 />
               </div>
             </div>
@@ -127,7 +141,13 @@ const Register = () => {
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 pl-4 pr-12 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.password ? "border-red-500" : ""}`}
                   {...register("password", {
                     required: "Password is required",
-                    minLength: { value: 6, message: "Min 6 characters" },
+                    minLength: { value: 8, message: "Min 8 characters" },
+                    pattern: {
+                      value:
+                        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/,
+                      message: `<ul>
+                        <li>At least one uppercase letter</li><li>At least one lowercase letter</li><li>At least one number</li><li>At least one special character</li></ul>`,
+                    },
                   })}
                 />
                 <button
@@ -176,9 +196,13 @@ const Register = () => {
               </div>
               {/* Error Message */}
               {errors.password && (
-                <p className="w-full mt-4 text-red-600 text-center text-sm font-medium p-2 rounded bg-red-50 border border-red-200">
-                  {errors.password.message}
-                </p>
+                <div className="w-full mt-4 text-red-600 text-center text-sm font-medium p-2 rounded bg-red-50 border border-red-200">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: errors.password?.message,
+                    }}
+                  />
+                </div>
               )}
             </div>
 
@@ -194,7 +218,9 @@ const Register = () => {
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-3 pl-4 pr-12 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all ${errors.confirmPassword ? "border-red-500" : ""}`}
                   {...register("confirmPassword", {
                     required: "Confirm Password is required",
-                    minLength: { value: 6, message: "Min 6 characters" },
+                    validate: (value) =>
+                      value === getValues("password") ||
+                      "Passwords do not match",
                   })}
                 />
                 <button
@@ -251,8 +277,14 @@ const Register = () => {
             </div>
 
             {errorMsg && (
-              <p className="w-full mt-4 text-red-600 text-center text-sm font-medium p-2 rounded bg-red-50 border border-red-200">
+              <div className="w-full mt-4 text-red-600 text-center text-sm font-medium p-2 rounded bg-red-50 border border-red-200">
                 {errorMsg}
+              </div>
+            )}
+
+            {successMsg && (
+              <p className="w-full mt-4 text-green-600 text-center text-sm font-medium p-2 rounded bg-green-50 border border-green-200">
+                {successMsg}
               </p>
             )}
 
@@ -282,12 +314,12 @@ const Register = () => {
 
           <p className="text-center text-gray-500 text-sm font-medium mt-8">
             Already have an account?
-            <Link
+            <NavLink
               to="/login"
               className="text-[#155dfc] font-bold ml-2 hover:underline decoration-2 underline-offset-4"
             >
               Login here
-            </Link>
+            </NavLink>
           </p>
         </div>
       </div>

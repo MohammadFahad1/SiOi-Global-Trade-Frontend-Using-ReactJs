@@ -62,13 +62,41 @@ const useAuth = () => {
     }
   };
 
+  // Logou user
   const logoutUser = () => {
     setAuthToken(null);
     setUser(null);
     localStorage.removeItem("authTokens");
   };
 
-  return { user, loginUser, logoutUser, errorMsg, loading, setErrorMsg };
+  // Register User
+  const registerUser = async (userData) => {
+    try {
+      setErrorMsg("");
+      setLoading(true);
+      await apiClient.post("/auth/users/", userData);
+    } catch (err) {
+      if (err.response && err.response.data) {
+        setErrorMsg(Object.values(err.response.data).flat().join("\n"));
+      } else {
+        setErrorMsg(
+          "Registration failed. Please check your details and try again.",
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return {
+    user,
+    loginUser,
+    logoutUser,
+    errorMsg,
+    setErrorMsg,
+    loading,
+    registerUser,
+  };
 };
 
 export default useAuth;

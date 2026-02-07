@@ -98,7 +98,7 @@ const Login = () => {
                 </div>
                 <input
                   type="email"
-                  placeholder="hello@example.com"
+                  placeholder="hello@sioibd.com"
                   className={`w-full bg-white/3 border border-blue/10 rounded-2xl py-4 pl-12 pr-4 text-blue-600 outline-none focus:border-[#155dfc]/50 focus:ring-4 focus:ring-[#155dfc]/10 transition-all duration-300 placeholder:text-gray-600 ${errors.email ? "border-red-500 focus:border-red-500 focus:ring-red-500/10" : ""}`}
                   {...register("email", {
                     required: "Email is required",
