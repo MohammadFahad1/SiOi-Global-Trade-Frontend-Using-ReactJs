@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <Link to="/">
             <img
-              src="sioi_logo.png"
+              src="/sioi_logo.png"
               className="h-12 hover:transform hover:scale-105 transition-transform duration-150"
             />
           </Link>
@@ -131,7 +131,7 @@ const Footer = () => {
       <div className="footer sm:footer-horizontal bg-[#111828] text-neutral-content items-center p-4 border-t border-gray-500">
         <aside className="grid-flow-col items-center">
           <img
-            src="favicon.png"
+            src="/favicon.png"
             alt="SiOi Global Trade Logo"
             className="h-10"
           />

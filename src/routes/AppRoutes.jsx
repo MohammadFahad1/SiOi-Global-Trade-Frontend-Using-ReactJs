@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "../components/PrivateRoute";
 import Register from "../pages/Register";
+import ActivateAccount from "../components/ActivateAccount";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="activate/:uid/:token" element={<ActivateAccount />} />
         <Route
           path="dashboard"
           element={

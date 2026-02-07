@@ -36,7 +36,7 @@ const Navbar = () => {
         <NavLink to="/">
           {/* <img src="logo.png" alt="SiOi Global Trade Logo" className="h-15" /> */}
           <img
-            src="sioi_logo.png"
+            src="/sioi_logo.png"
             alt="SiOi Global Trade Logo"
             className="h-15"
           />
@@ -198,6 +198,35 @@ const Navbar = () => {
               className="menu menu-md dropdown-content bg-blue-600 rounded-t-none text-white rounded-box z-1 mt-3 p-2 shadow min-w-62.5 border-t border-t-[#111828]"
             >
               {navLinks}
+              <li>
+                <NavLink
+                  to="/login"
+                  className="p-2 bg-blue-200 text-blue-700 hover:bg-blue-300 transition-colors duration-300"
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <label className="input w-full flex bg-white text-black rounded cursor-pointer hover:outline-2 hover:outline-blue-500 mt-3">
+                  <svg
+                    className="h-[1em] opacity-50"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                      strokeWidth="2.5"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                  </svg>
+                  <input type="search" placeholder="Search DORIN Products" />
+                </label>
+              </li>
             </ul>
           </div>
           <div className="hidden lg:flex">
