@@ -75,6 +75,7 @@ const useAuth = () => {
       setErrorMsg("");
       setLoading(true);
       await apiClient.post("/auth/users/", userData);
+      return true;
     } catch (err) {
       if (err.response && err.response.data) {
         setErrorMsg(Object.values(err.response.data).flat().join("\n"));
@@ -83,6 +84,7 @@ const useAuth = () => {
           "Registration failed. Please check your details and try again.",
         );
       }
+      return false;
     } finally {
       setLoading(false);
     }

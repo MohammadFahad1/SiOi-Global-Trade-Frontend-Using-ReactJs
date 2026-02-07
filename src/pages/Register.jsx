@@ -11,6 +11,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     getValues,
   } = useForm();
@@ -19,10 +20,13 @@ const Register = () => {
     setSuccessMsg("");
     delete data.confirmPassword;
     try {
-      await registerUser(data);
-      //   setSuccessMsg(
-      //     "An email has been sent to your registered email address. Please verify your account before logging in.",
-      //   );
+      const res = await registerUser(data);
+      if (res) {
+        setSuccessMsg(
+          "An email has been sent to your registered email address. Please verify your account before logging in.",
+        );
+        reset();
+      }
     } catch (err) {
       setErrorMsg(err);
     }
