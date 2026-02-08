@@ -175,7 +175,7 @@ const Navbar = () => {
       {/* Search Section Ends */}
       <nav>
         <div className="navbar bg-blue-600 shadow-sm justify-between uppercase font-semibold text-xl px-10 text-white">
-          <div className="lg:hidden dropdown z-50">
+          <div className="lg:hidden dropdown z-100">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -17,11 +17,13 @@ const ActivateAccount = () => {
         token,
       })
       .then((res) => {
-        console.log(res.data);
-        setMessage("Account activated successfully!");
+        if (res.status === 204) {
+          setMessage("Your account has been activated successfully.");
+        } else {
+          setError("Account activation failed. Please try again.");
+        }
       })
       .catch((err) => {
-        console.error(err);
         setError(JSON.stringify(err.message || "Account activation failed."));
       })
       .finally(() => setLoading(false));

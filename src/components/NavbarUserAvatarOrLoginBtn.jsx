@@ -29,7 +29,7 @@ const NavbarUserAvatarOrLoginBtn = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-1 mt-3 w-48 p-3"
+            className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-100 mt-3 w-48 p-3"
           >
             <li>
               <NavLink to="/dashboard" className="justify-between py-3">
