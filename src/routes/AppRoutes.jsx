@@ -34,6 +34,14 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="activate/:uid/:token" element={<ActivateAccount />} />
+        <Route
+          path="*"
+          element={
+            <h1 className="text-6xl text-center my-10 font-bold text-red-600">
+              404 Not Found
+            </h1>
+          }
+        />
       </Route>
       <Route
         path="dashboard"

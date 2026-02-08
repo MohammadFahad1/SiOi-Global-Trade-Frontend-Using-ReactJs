@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import {
   Squares2X2Icon,
   CubeIcon,
@@ -8,18 +8,38 @@ import {
   StarIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import Sidebar from "../components/Dashboard/Sidebar";
+import HeaderNavbar from "../components/Dashboard/HeaderNavbar";
 
 export default function Dashboard() {
-  const [active, setActive] = useState("Dashboard");
-
   const menuItems = [
-    { name: "Dashboard", icon: <Squares2X2Icon className="w-5 h-5" /> },
-    { name: "Products", icon: <CubeIcon className="w-5 h-5" /> },
-    { name: "Categories", icon: <RectangleStackIcon className="w-5 h-5" /> },
-    { name: "Brands", icon: <TagIcon className="w-5 h-5" /> },
-    { name: "Orders", icon: <ShoppingBagIcon className="w-5 h-5" /> },
-    { name: "Reviews", icon: <StarIcon className="w-5 h-5" /> },
-    { name: "Users", icon: <UsersIcon className="w-5 h-5" /> },
+    {
+      name: "Dashboard",
+      icon: <Squares2X2Icon className="w-5 h-5" />,
+      path: "dashboard",
+    },
+    {
+      name: "Products",
+      icon: <CubeIcon className="w-5 h-5" />,
+      path: "products",
+    },
+    {
+      name: "Categories",
+      icon: <RectangleStackIcon className="w-5 h-5" />,
+      path: "categories",
+    },
+    { name: "Brands", icon: <TagIcon className="w-5 h-5" />, path: "brands" },
+    {
+      name: "Orders",
+      icon: <ShoppingBagIcon className="w-5 h-5" />,
+      path: "orders",
+    },
+    {
+      name: "Reviews",
+      icon: <StarIcon className="w-5 h-5" />,
+      path: "reviews",
+    },
+    { name: "Users", icon: <UsersIcon className="w-5 h-5" />, path: "users" },
   ];
 
   const orders = [
@@ -70,78 +90,15 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-      {/* Sidebar */}
-      <aside className="w-72 bg-blue-100 shadow-xl hidden md:flex flex-col">
-        <div className="p-5 text-2xl font-bold border-b flex items-center gap-2">
-          🛒 <span>Dashboard</span>
-        </div>
-        <ul className="menu p-4 gap-1 text-blue">
-          {menuItems.map((item) => (
-            <li key={item.name}>
-              <button
-                onClick={() => setActive(item.name)}
-                className={`flex items-center gap-3 rounded-xl transition ${
-                  active === item.name
-                    ? "bg-blue-600 text-white"
-                    : "hover:bg-blue-200"
-                }`}
-              >
-                {item.icon}
-                {item.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* Mobile Drawer */}
-      <div className="md:hidden drawer">
-        <input id="admin-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
-          <div className="navbar bg-blue-100 shadow">
-            <div className="flex-none">
-              <label
-                htmlFor="admin-drawer"
-                className="btn btn-square btn-ghost"
-              >
-                ☰
-              </label>
-            </div>
-            <div className="flex-1 px-2 font-bold">🛒 Dashboard</div>
-          </div>
-        </div>
-        <div className="drawer-side">
-          <label htmlFor="admin-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-72 bg-blue-100 gap-1 min-h-screen">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <button
-                  onClick={() => setActive(item.name)}
-                  className={`flex items-center gap-3 rounded-xl transition ${
-                    active === item.name
-                      ? "bg-primary text-primary-content"
-                      : "hover:bg-blue-200"
-                  }`}
-                >
-                  {item.icon}
-                  {item.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      {/* Sidebar and Mobile Drawer*/}
+      <Sidebar menuItems={menuItems} />
 
       {/* Main Content */}
       <main className="flex-1 p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold">{active}</h1>
-          <button className="btn btn-info bg-blue-600 text-white btn-sm rounded-full">
-            + Add New
-          </button>
-        </div>
+        {/* Header navbar */}
+        <HeaderNavbar />
 
-        {active === "Dashboard" && (
+        {window.location.pathname.endsWith("dashboard") && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {["Orders", "Products", "Users"].map((item, i) => (
               <div
@@ -156,16 +113,6 @@ export default function Dashboard() {
                 </div>
               </div>
             ))}
-          </div>
-        )}
-
-        {active !== "Dashboard" && (
-          <div className="card bg-blue-100 shadow-lg">
-            <div className="card-body">
-              <p className="text-gray-500">
-                Manage <span className="font-semibold">{active}</span> here.
-              </p>
-            </div>
           </div>
         )}
 
