@@ -33,11 +33,19 @@ const HeaderNavbar = () => {
         >
           <li>
             <NavLink
-              to="/dashboard"
+              to="/dashboard/profile"
               className="justify-between py-3 hover:font-bold"
             >
               Profile
               {/* <span className="badge">New</span> */}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard"
+              className="justify-between py-3 hover:font-bold"
+            >
+              Dashboard
             </NavLink>
           </li>
           <li>

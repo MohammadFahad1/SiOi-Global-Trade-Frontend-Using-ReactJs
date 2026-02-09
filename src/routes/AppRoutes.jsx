@@ -14,6 +14,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import Register from "../pages/Register";
 import ActivateAccount from "../components/ActivateAccount";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import Profile from "../pages/Profile";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -25,8 +26,7 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      {/* <Route index element={<Home />} />
-      <Route path="about" element={<About />} /> */}
+      {/* Public Routes Starts */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
@@ -35,6 +35,7 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="activate/:uid/:token" element={<ActivateAccount />} />
+        {/* Public Routes Ends */}
 
         {/* 404 */}
         <Route
@@ -57,6 +58,7 @@ const AppRoutes = () => {
         }
       >
         <Route index element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
       {/* Private Routes Ends */}
     </Routes>
