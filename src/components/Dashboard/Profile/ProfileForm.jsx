@@ -7,7 +7,7 @@ const ProfileForm = ({ register, errors, isEditing }) => {
         <label className="label text-gray-800 font-semibold">First Name</label>
         <input
           type="text"
-          className="input input-bordered bg-gray-100 w-full"
+          className="input input-bordered bg-gray-100 w-full text-black"
           disabled={!isEditing}
           {...register("first_name", { required: "First name is required" })}
         />
@@ -20,7 +20,7 @@ const ProfileForm = ({ register, errors, isEditing }) => {
         <label className="label text-gray-800 font-semibold">Last Name</label>
         <input
           type="text"
-          className="input input-bordered bg-gray-100 w-full"
+          className="input input-bordered bg-gray-100 w-full text-black"
           disabled={!isEditing}
           {...register("last_name")}
         />
@@ -32,7 +32,7 @@ const ProfileForm = ({ register, errors, isEditing }) => {
         </label>
         <input
           type="email"
-          className="input input-bordered bg-gray-100 w-full"
+          className="input input-bordered bg-gray-100 w-full text-black"
           disabled
           {...register("email")}
         />
@@ -42,7 +42,7 @@ const ProfileForm = ({ register, errors, isEditing }) => {
         <label className="label text-gray-800 font-semibold">Address</label>
         <input
           type="text"
-          className="input input-bordered bg-gray-100 w-full"
+          className="input input-bordered bg-gray-100 w-full text-black"
           disabled={!isEditing}
           {...register("address")}
         />
@@ -54,7 +54,7 @@ const ProfileForm = ({ register, errors, isEditing }) => {
         </label>
         <input
           type="text"
-          className="input input-bordered bg-gray-100 w-full"
+          className="input input-bordered bg-gray-100 w-full text-black"
           disabled={!isEditing}
           {...register("phone_number")}
         />

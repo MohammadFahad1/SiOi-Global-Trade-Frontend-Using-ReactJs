@@ -31,6 +31,29 @@ const useAuth = () => {
     }
   };
 
+  // Update user profile
+  const updateUserProfile = async (data) => {
+    try {
+      setErrorMsg("");
+      const res = await apiClient.patch("/auth/users/me/", data, {
+        headers: {
+          Authorization: `JWT ${authTokens?.access}`,
+        },
+      });
+      setUser(res.data);
+      return {
+        success: true,
+        data: res.data,
+      };
+    } catch (err) {
+      setErrorMsg(err.response?.data.detail || "Failed to update user profile");
+      return {
+        success: false,
+        data: null,
+      };
+    }
+  };
+
   useEffect(() => {
     if (authTokens) {
       const handleUserFetch = async () => {
@@ -62,7 +85,7 @@ const useAuth = () => {
     }
   };
 
-  // Logou user
+  // Logout user
   const logoutUser = () => {
     setAuthToken(null);
     setUser(null);
@@ -98,6 +121,7 @@ const useAuth = () => {
     setErrorMsg,
     loading,
     registerUser,
+    updateUserProfile,
   };
 };
 
