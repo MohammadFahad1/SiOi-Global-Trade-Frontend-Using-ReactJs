@@ -7,7 +7,7 @@ import useAuthContext from "../hooks/useAuthContext";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const { user, updateUserProfile } = useAuthContext();
+  const { user, updateUserProfile, changePassword } = useAuthContext();
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,11 +39,25 @@ const Profile = () => {
       };
 
       const res = await updateUserProfile(profilePayload);
-      if (res) {
-        setSuccessMsg("Profile updated successfully");
-        setErrorMsg("");
+      if (data.current_password && data.new_password) {
+        const passwordPayload = {
+          current_password: data.current_password,
+          new_password: data.new_password,
+        };
+        const res = await changePassword(passwordPayload, true);
+        if (res.success) {
+          setSuccessMsg("Profile and password updated successfully");
+          setErrorMsg("");
+        } else {
+          setErrorMsg("Profile and password update failed");
+        }
       } else {
-        setErrorMsg("Profile update failed");
+        if (res.success) {
+          setSuccessMsg("Profile updated successfully");
+          setErrorMsg("");
+        } else {
+          setErrorMsg("Profile update failed");
+        }
       }
 
       setIsEditing(false);

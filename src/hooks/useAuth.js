@@ -13,6 +13,26 @@ const useAuth = () => {
 
   const [authTokens, setAuthToken] = useState(getToken());
 
+  const handleAPIError = (
+    error,
+    massage = "Something went wrong! Try again later.",
+  ) => {
+    if (error.response && error.response.data) {
+      const errorMessage = Object.values(error.response.data).flat().join("\n");
+      setErrorMsg(errorMessage || massage);
+      return {
+        success: false,
+        message: errorMessage || massage,
+      };
+    } else {
+      setErrorMsg(massage);
+      return {
+        success: false,
+        message: massage,
+      };
+    }
+  };
+
   // Fetch user profile
   const fetchUserProfile = async () => {
     try {
@@ -46,11 +66,25 @@ const useAuth = () => {
         data: res.data,
       };
     } catch (err) {
-      setErrorMsg(err.response?.data.detail || "Failed to update user profile");
+      return handleAPIError(err, "Failed to update user profile");
+    }
+  };
+
+  // Change Password
+  const changePassword = async (data) => {
+    try {
+      setErrorMsg("");
+      const res = await apiClient.post("/auth/users/set_password/", data, {
+        headers: {
+          Authorization: `JWT ${authTokens?.access}`,
+        },
+      });
       return {
-        success: false,
-        data: null,
+        success: true,
+        data: res.data,
       };
+    } catch (err) {
+      return handleAPIError(err, "Failed to change password");
     }
   };
 
@@ -122,6 +156,7 @@ const useAuth = () => {
     loading,
     registerUser,
     updateUserProfile,
+    changePassword,
   };
 };
 
