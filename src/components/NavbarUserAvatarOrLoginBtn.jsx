@@ -32,9 +32,14 @@ const NavbarUserAvatarOrLoginBtn = () => {
             className="menu menu-sm dropdown-content bg-blue-600 shadow-xl rounded-box z-100 mt-3 w-48 p-3"
           >
             <li>
-              <NavLink to="/dashboard" className="justify-between py-3">
+              <NavLink to="/dashboard/profile" className="justify-between py-3">
                 Profile
                 {/* <span className="badge">New</span> */}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard" className="justify-between py-3">
+                Dashboard
               </NavLink>
             </li>
             <li>

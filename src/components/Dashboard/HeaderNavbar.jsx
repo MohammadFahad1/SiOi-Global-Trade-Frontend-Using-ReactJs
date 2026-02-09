@@ -13,7 +13,9 @@ const HeaderNavbar = () => {
 
   return (
     <div className="flex items-center justify-between mb-6 border-b-2 border-b-blue-600 pb-2">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <NavLink to="/" className="text-2xl font-bold text-blue-600">
+        <h1 className="text-2xl font-bold">Back to Home Page</h1>
+      </NavLink>
       <div className="dropdown dropdown-end">
         <div
           tabIndex={0}
