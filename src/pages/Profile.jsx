@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import ProfileForm from "../components/Dashboard/Profile/ProfileForm";
 import { useForm } from "react-hook-form";
 import ProfileButton from "../components/Dashboard/Profile/ProfileButton";
+import PasswordChangeForm from "../components/Dashboard/Profile/PasswordChangeForm";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const {
     register,
     formState: { errors },
+    watch,
   } = useForm();
 
   return (
@@ -21,6 +23,13 @@ const Profile = () => {
             register={register}
             errors={errors}
             isEditing={isEditing}
+          />
+
+          <PasswordChangeForm
+            errors={errors}
+            register={register}
+            isEditing={isEditing}
+            watch={watch}
           />
 
           <ProfileButton isEditing={isEditing} setIsEditing={setIsEditing} />
