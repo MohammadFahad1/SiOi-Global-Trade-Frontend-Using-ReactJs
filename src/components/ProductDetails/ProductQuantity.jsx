@@ -10,7 +10,8 @@ const ProductQuantity = ({ product, quantity, setQuantity }) => {
         <div className="group flex items-center border-2 border-gray-200 rounded-lg sm:rounded-xl bg-white hover:border-blue-500/50 transition-colors duration-300">
           <button
             onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : prev))}
-            className="p-2 sm:p-2 md:p-3 text-gray-500 hover:text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-l-lg sm:rounded-l-xl group-hover:text-blue-600 touch-manipulation"
+            className="p-2 sm:p-2 md:p-3 text-gray-500 hover:text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-l-lg sm:rounded-l-xl group-hover:text-blue-600 touch-manipulation cursor-pointer"
+            disabled={quantity <= 1}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +46,8 @@ const ProductQuantity = ({ product, quantity, setQuantity }) => {
             onClick={() =>
               setQuantity((prev) => (prev < product.stock ? prev + 1 : prev))
             }
-            className="p-2 sm:p-2 md:p-3 text-gray-500 hover:text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-r-lg sm:rounded-r-xl group-hover:text-blue-600 touch-manipulation"
+            className="p-2 sm:p-2 md:p-3 text-gray-500 hover:text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-r-lg sm:rounded-r-xl group-hover:text-blue-600 touch-manipulation cursor-pointer"
+            disabled={quantity >= product.stock}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

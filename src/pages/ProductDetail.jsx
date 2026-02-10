@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductImageGallery from "../components/ProductDetails/ProductImageGallery";
 import AddToCardAndBuyNowBtn from "../components/ProductDetails/AddToCardAndBuyNowBtn";
 import ProductQuantity from "../components/ProductDetails/ProductQuantity";
+import StockStatus from "../components/ProductDetails/StockStatus";
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -139,32 +140,14 @@ const ProductDetail = () => {
                 <circle cx={12} cy={8} r={6} />
                 <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
               </svg>
-              DENSO
+              {product.brand}
             </div>
-            <div className="inline-flex items-center bg-red-500/10 text-red-700 border border-red-500/30 px-2 sm:px-3 md:px-4 py-2 sm:py-2 md:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2"
-              >
-                <circle cx={12} cy={12} r={10} />
-                <path d="m15 9-6 6" />
-                <path d="m9 9 6 6" />
-              </svg>
-              <span className="hidden sm:inline">Out of Stock</span>
-              <span className="sm:hidden">Out of Stock</span>
-            </div>
+            {/* Product Stock Status */}
+            <StockStatus stock={product.stock} />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-2">
-              Denso Spark Plug VFKBH20 (Toyota Hiace- TRH200V,200K)
+              {product.name}
             </h1>
             <div className="w-16 h-1 bg-linear-to-r from-blue-500 to-blue-600 rounded-full" />
           </div>
@@ -206,7 +189,7 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className="p-3 relative z-10">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full">
               <div className="bg-linear-to-br from-gray-50 to-gray-100/50 hover:from-blue-50/50 hover:to-blue-100/30 rounded-lg p-2.5 border border-gray-200/50 hover:border-blue-300/30 transition-all duration-300">
                 <div className="flex items-center gap-1.5 mb-1">
                   <div className="w-5 h-5 bg-blue-100 rounded-md flex items-center justify-center">
@@ -227,11 +210,11 @@ const ProductDetail = () => {
                     </svg>
                   </div>
                   <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Part ID#
+                    Product ID#
                   </span>
                 </div>
-                <div className="text-xs font-bold text-gray-900 truncate font-mono">
-                  7633670799616
+                <div className="text-xs font-bold text-gray-900 truncate font-mono ml-7">
+                  {product.id}
                 </div>
               </div>
               <div className="bg-linear-to-br from-gray-50 to-gray-100/50 hover:from-blue-50/50 hover:to-blue-100/30 rounded-lg p-2.5 border border-gray-200/50 hover:border-blue-300/30 transition-all duration-300">
@@ -259,8 +242,8 @@ const ProductDetail = () => {
                     Brand
                   </span>
                 </div>
-                <div className="text-xs font-bold text-gray-900 truncate">
-                  DENSO
+                <div className="text-xs font-bold text-gray-900 truncate ml-7">
+                  {product.brand}
                 </div>
               </div>
             </div>
@@ -272,12 +255,7 @@ const ProductDetail = () => {
           style={{ opacity: 1, transform: "none" }}
         >
           <p className="text-sm text-gray-700 leading-relaxed line-clamp-3">
-            - Denso Iridium Power global performances.- 0.4mm diameter Iridium
-            Center electrode.- Platinum chip on ground electrode.- Last 100
-            000km (5 times the classic spark plugs on normal use).- Less fuel
-            consumption (Up to 5%).- Better acceleration / More stability from
-            ignition.- More reaction from the engine.- Cleaner combustion / Less
-            unburned fuel.
+            {product.description}
           </p>
         </div>
         <div

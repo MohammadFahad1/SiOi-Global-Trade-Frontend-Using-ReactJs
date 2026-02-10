@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import defaultProductImage from "../../../public/product_default.jpg";
+import defaultProductImage from "../../assets/product_default.jpg";
 
 // Import Swiper styles
 import "swiper/css";
