@@ -271,7 +271,7 @@ const ProductDetail = () => {
           />
           <div className="relative z-10 space-y-2">
             {/* Add to Card and Buy Now Button */}
-            <AddToCardAndBuyNowBtn />
+            <AddToCardAndBuyNowBtn stock={product.stock} />
             <div className="grid grid-cols-2 gap-2">
               <button
                 className="flex items-center justify-center gap-1.5 py-2.5 px-3 border-2 rounded-xl transition-all duration-300 font-medium border-gray-300 text-gray-600 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600"
