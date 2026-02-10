@@ -15,6 +15,7 @@ import Register from "../pages/Register";
 import ActivateAccount from "../components/ActivateAccount";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../pages/Profile";
+import ProductDetail from "../pages/ProductDetail";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const AppRoutes = () => {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
+        <Route path="products/:id" element={<ProductDetail />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />

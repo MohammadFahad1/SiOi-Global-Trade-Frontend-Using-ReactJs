@@ -106,7 +106,7 @@ const ProductCard = ({ product }) => {
             {product.brand ? product.brand : "HITACHI"}
           </div>
         </div>
-        <NavLink to="/">
+        <NavLink to={`/products/${product?.id}`}>
           <h2 className="card-title transition-colors duration-300 group-hover:text-blue-600">
             {product?.name ? product.name : "PIAA LED Bulb 6000K LEH120E H4"}
           </h2>
