@@ -10,7 +10,8 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const ProductImageGallery = ({ images, productName = "Product Image" }) => {
-  const displayImages = images.length > 0 ? images : [defaultProductImage];
+  const displayImages =
+    images.length > 0 ? images : [{ id: 1, image: defaultProductImage }];
   return (
     <div className="rounded-lg overflow-hidden h-full">
       <Swiper

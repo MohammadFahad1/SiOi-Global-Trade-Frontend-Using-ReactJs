@@ -1,6 +1,6 @@
 import React from "react";
 
-const StockStatus = ({ stock }) => {
+const StockStatus = ({ stock = 0 }) => {
   return (
     <>
       {stock < 1 ? (
