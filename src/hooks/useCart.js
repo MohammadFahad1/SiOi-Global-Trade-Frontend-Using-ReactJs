@@ -1,0 +1,84 @@
+import React, { useState } from "react";
+import apiClient from "../services/api-client";
+
+const useCart = () => {
+  const [authToken] = useState(
+    () => JSON.parse(localStorage.getItem("authTokens")).access,
+  );
+  const [cart, setCart] = useState(null);
+  const [cartId, setCartId] = useState(() => localStorage.getItem("cartId"));
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  // Create a new cart
+  const createOrGetCart = async () => {
+    try {
+      setLoading(true);
+      setErrorMsg("");
+      const res = await apiClient.post(
+        "/carts/",
+        {},
+        {
+          headers: {
+            Authorization: `JWT ${authToken}`,
+          },
+        },
+      );
+      setCart(res.data);
+      if (!cartId) {
+        localStorage.setItem("cartId", res.data.id);
+        setCartId(res.data.id);
+      }
+
+      return {
+        success: true,
+        data: cart,
+      };
+    } catch (error) {
+      setErrorMsg(error.message);
+      return {
+        success: false,
+        message: error.message,
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  //   Add Items to the cart
+  const addCartItems = async (product_id, quantity) => {
+    if (!cartId) await createOrGetCart();
+    setLoading(true);
+    setErrorMsg("");
+    try {
+      const res = await apiClient.post(
+        `/carts/${cartId}/items/`,
+        {
+          product_id,
+          quantity,
+        },
+        {
+          headers: {
+            Authorization: `JWT ${authToken}`,
+          },
+        },
+      );
+      return {
+        success: true,
+        data: res.data,
+      };
+    } catch (error) {
+      setErrorMsg(error.message);
+      return {
+        success: false,
+        message: error.message,
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { createOrGetCart, addCartItems, cart, loading, errorMsg, cartId };
+};
+
+export default useCart;

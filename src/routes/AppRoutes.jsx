@@ -16,6 +16,7 @@ import ActivateAccount from "../components/ActivateAccount";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../pages/Profile";
 import ProductDetail from "../pages/ProductDetail";
+import Cart from "../pages/Cart";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -61,6 +62,7 @@ const AppRoutes = () => {
       >
         <Route index element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="cart" element={<Cart />} />
       </Route>
       {/* Private Routes Ends */}
     </Routes>
