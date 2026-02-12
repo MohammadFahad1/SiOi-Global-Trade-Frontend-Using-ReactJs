@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import apiClient from "../services/api-client";
+import authApiClient from "../services/auth-api-client";
 
 const useCart = () => {
-  const [authToken] = useState(
-    () => JSON.parse(localStorage.getItem("authTokens")).access,
-  );
+  // const [authToken] = useState(
+  //   () => JSON.parse(localStorage.getItem("authTokens")).access,
+  // );
   const [cart, setCart] = useState(null);
   const [cartId, setCartId] = useState(() => localStorage.getItem("cartId"));
   const [loading, setLoading] = useState(false);
@@ -15,15 +15,7 @@ const useCart = () => {
     try {
       setLoading(true);
       setErrorMsg("");
-      const res = await apiClient.post(
-        "/carts/",
-        {},
-        {
-          headers: {
-            Authorization: `JWT ${authToken}`,
-          },
-        },
-      );
+      const res = await authApiClient.post("/carts/");
       setCart(res.data);
       if (!cartId) {
         localStorage.setItem("cartId", res.data.id);
@@ -51,18 +43,10 @@ const useCart = () => {
     setLoading(true);
     setErrorMsg("");
     try {
-      const res = await apiClient.post(
-        `/carts/${cartId}/items/`,
-        {
-          product_id,
-          quantity,
-        },
-        {
-          headers: {
-            Authorization: `JWT ${authToken}`,
-          },
-        },
-      );
+      const res = await authApiClient.post(`/carts/${cartId}/items/`, {
+        product_id,
+        quantity,
+      });
       return {
         success: true,
         data: res.data,
