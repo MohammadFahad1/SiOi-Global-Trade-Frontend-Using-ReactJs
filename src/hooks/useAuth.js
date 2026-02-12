@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import authApiClient from "../services/auth-api-client";
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -38,11 +39,7 @@ const useAuth = () => {
     try {
       setErrorMsg("");
       setLoading(true);
-      const res = await apiClient.get("/auth/users/me/", {
-        headers: {
-          Authorization: `JWT ${authTokens?.access}`,
-        },
-      });
+      const res = await authApiClient.get("/auth/users/me/");
       setUser(res.data);
     } catch (err) {
       setErrorMsg(err.response?.data.detail || "Failed to fetch user profile");
@@ -55,11 +52,7 @@ const useAuth = () => {
   const updateUserProfile = async (data) => {
     try {
       setErrorMsg("");
-      const res = await apiClient.patch("/auth/users/me/", data, {
-        headers: {
-          Authorization: `JWT ${authTokens?.access}`,
-        },
-      });
+      const res = await authApiClient.patch("/auth/users/me/", data);
       setUser(res.data);
       return {
         success: true,
@@ -74,11 +67,7 @@ const useAuth = () => {
   const changePassword = async (data) => {
     try {
       setErrorMsg("");
-      const res = await apiClient.post("/auth/users/set_password/", data, {
-        headers: {
-          Authorization: `JWT ${authTokens?.access}`,
-        },
-      });
+      const res = await authApiClient.post("/auth/users/set_password/", data);
       return {
         success: true,
         data: res.data,
@@ -95,7 +84,6 @@ const useAuth = () => {
       };
       handleUserFetch();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authTokens]);
 
   //   Login user

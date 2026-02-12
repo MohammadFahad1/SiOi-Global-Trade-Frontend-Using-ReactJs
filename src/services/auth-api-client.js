@@ -7,7 +7,6 @@ const authApiClient = axios.create({
 authApiClient.interceptors.request.use(
   (config) => {
     const token = JSON.parse(localStorage.getItem("authTokens")).access;
-    console.log(token);
 
     if (token) {
       config.headers.Authorization = `JWT ${token}`;

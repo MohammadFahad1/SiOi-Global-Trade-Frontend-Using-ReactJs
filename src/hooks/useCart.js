@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import authApiClient from "../services/auth-api-client";
 
 const useCart = () => {
-  // const [authToken] = useState(
-  //   () => JSON.parse(localStorage.getItem("authTokens")).access,
-  // );
+  const [authToken] = useState(
+    () => JSON.parse(localStorage.getItem("authTokens")).access,
+  );
   const [cart, setCart] = useState(null);
   const [cartId, setCartId] = useState(() => localStorage.getItem("cartId"));
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   // Create a new cart
-  const createOrGetCart = async () => {
+  const createOrGetCart = useCallback(async () => {
     try {
       setLoading(true);
       setErrorMsg("");
@@ -35,32 +35,35 @@ const useCart = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [authToken, cartId]);
 
   //   Add Items to the cart
-  const addCartItems = async (product_id, quantity) => {
-    if (!cartId) await createOrGetCart();
-    setLoading(true);
-    setErrorMsg("");
-    try {
-      const res = await authApiClient.post(`/carts/${cartId}/items/`, {
-        product_id,
-        quantity,
-      });
-      return {
-        success: true,
-        data: res.data,
-      };
-    } catch (error) {
-      setErrorMsg(error.message);
-      return {
-        success: false,
-        message: error.message,
-      };
-    } finally {
-      setLoading(false);
-    }
-  };
+  const addCartItems = useCallback(
+    async (product_id, quantity) => {
+      if (!cartId) await createOrGetCart();
+      setLoading(true);
+      setErrorMsg("");
+      try {
+        const res = await authApiClient.post(`/carts/${cartId}/items/`, {
+          product_id,
+          quantity,
+        });
+        return {
+          success: true,
+          data: res.data,
+        };
+      } catch (error) {
+        setErrorMsg(error.message);
+        return {
+          success: false,
+          message: error.message,
+        };
+      } finally {
+        setLoading(false);
+      }
+    },
+    [authToken, cartId],
+  );
 
   return { createOrGetCart, addCartItems, cart, loading, errorMsg, cartId };
 };
