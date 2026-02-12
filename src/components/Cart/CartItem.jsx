@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
 
-const CartItem = ({ items, handleUpdateQuantity }) => {
+const CartItem = ({ items, handleUpdateQuantity, handleRemoveItem }) => {
   if (!items || items.length === 0) {
     return (
-      <div className="flex justify-center items-center h-screen text-gray-400 text-lg font-semibold">
+      <div className="flex justify-center items-center text-red-400 text-lg font-semibold">
         Your cart is empty
       </div>
     );
@@ -58,7 +58,8 @@ const CartItem = ({ items, handleUpdateQuantity }) => {
                         {/* Category and Brand can be placed here */}
                       </div>
                       <button
-                        className="p-2 sm:p-3 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-200 hover:scale-110 mx-auto sm:mx-0"
+                        className="p-2 sm:p-3 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-200 hover:scale-110 mx-auto sm:mx-0 cursor-pointer"
+                        onClick={() => handleRemoveItem(item.id)}
                         aria-label="Remove item"
                       >
                         <svg
@@ -90,9 +91,12 @@ const CartItem = ({ items, handleUpdateQuantity }) => {
                           <div className="flex items-center border-2 border-gray-300 rounded-xl bg-white w-fit mx-auto md:mx-0">
                             <button
                               onClick={() =>
-                                handleUpdateQuantity(item.id, item.quantity - 1)
+                                handleUpdateQuantity(
+                                  item.id,
+                                  Math.max(1, item.quantity - 1),
+                                )
                               }
-                              className="p-2 md:p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-l-xl"
+                              className="p-2 md:p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-l-xl cursor-pointer"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +118,10 @@ const CartItem = ({ items, handleUpdateQuantity }) => {
                               className="w-16 md:w-20 text-center border-0 focus:ring-0 font-bold text-gray-900 bg-transparent text-sm md:text-base"
                               type="number"
                               onChange={(e) =>
-                                handleUpdateQuantity(item.id, e.target.value)
+                                handleUpdateQuantity(
+                                  item.id,
+                                  Math.max(1, e.target.value),
+                                )
                               }
                               value={item.quantity}
                             />
@@ -122,7 +129,7 @@ const CartItem = ({ items, handleUpdateQuantity }) => {
                               onClick={() =>
                                 handleUpdateQuantity(item.id, item.quantity + 1)
                               }
-                              className="p-2 md:p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-r-xl"
+                              className="p-2 md:p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 rounded-r-xl cursor-pointer"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"

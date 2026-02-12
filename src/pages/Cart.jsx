@@ -1,25 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useCartContext from "../hooks/useCartContext";
 import { Link } from "react-router";
 import CartItem from "../components/Cart/CartItem";
 
 const Cart = () => {
-  const { cart, createOrGetCart, updateCartItemQuantity, loading } =
-    useCartContext();
+  const {
+    cart,
+    createOrGetCart,
+    updateCartItemQuantity,
+    loading,
+    deleteCartItem,
+  } = useCartContext();
+  const [localCart, setLocalCart] = useState(cart);
 
   useEffect(() => {
     createOrGetCart();
   }, [createOrGetCart]);
 
+  useEffect(() => {
+    setLocalCart(cart);
+  }, [cart]);
+
   const handleUpdateQuantity = async (itemId, newQuantity) => {
+    const copyOfLocalCart = { ...localCart };
+
+    setLocalCart((prevLocalCart) => ({
+      ...prevLocalCart,
+      items: prevLocalCart.items.map((item) =>
+        item.id === itemId ? { ...item, quantity: newQuantity } : item,
+      ),
+    }));
+
     try {
       await updateCartItemQuantity(itemId, newQuantity);
     } catch (error) {
       console.error("Error updating cart item quantity:", error.message);
+      setLocalCart(copyOfLocalCart);
     }
   };
 
-  if (loading || !cart) return <div>Loading...</div>;
+  const handleRemoveItem = async (itemId) => {
+    const updatedItems = localCart.items.filter((item) => item.id !== itemId);
+
+    setLocalCart((prevLocalCart) => ({
+      ...prevLocalCart,
+      items: updatedItems,
+    }));
+
+    try {
+      // Remove the item from the cart
+      await deleteCartItem(itemId);
+    } catch (error) {
+      // Handle error
+      console.error("Error removing item from cart:", error.message);
+    }
+  };
+
+  if (loading || !localCart) return <div>Loading...</div>;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-6 lg:py-10">
@@ -69,7 +106,10 @@ const Cart = () => {
             </div>
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Shopping Cart<span className="text-blue-600 ml-2">(1)</span>
+                Shopping Cart
+                <span className="text-blue-600 ml-2">
+                  ({localCart.items.length})
+                </span>
               </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Review your items and checkout
@@ -144,7 +184,8 @@ const Cart = () => {
           {/* Cart Items */}
           <CartItem
             handleUpdateQuantity={handleUpdateQuantity}
-            items={cart.items}
+            handleRemoveItem={handleRemoveItem}
+            items={localCart.items}
           />
         </div>
         <div className="space-y-4">
@@ -185,9 +226,11 @@ const Cart = () => {
             <div className="p-4">
               <div className="space-y-3">
                 <div className="flex justify-between text-base md:text-lg text-gray-700">
-                  <span className="font-medium">Subtotal (1 items)</span>
+                  <span className="font-medium">
+                    Subtotal ({localCart.items.length} items)
+                  </span>
                   <span className="font-bold text-lg md:text-xl">
-                    ৳3,350.00
+                    ৳{localCart.total_price.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-base md:text-lg text-gray-700">
@@ -212,7 +255,7 @@ const Cart = () => {
                         <circle cx="7.5" cy="17.5" r="2.5" />
                         <circle cx="17.5" cy="17.5" r="2.5" />
                       </svg>
-                      Free
+                      120.00
                     </span>
                   </span>
                 </div>
@@ -227,13 +270,13 @@ const Cart = () => {
                     </span>
                     <div className="text-right">
                       <span className="text-2xl md:text-3xl font-bold text-gray-900">
-                        ৳3,350.00
+                        ৳{(localCart.total_price + 120).toFixed(2)}
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <button className="group w-full mt-6 md:mt-8 flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105">
+              <button className="group w-full mt-6 md:mt-8 flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold text-base md:text-md  rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -249,7 +292,7 @@ const Cart = () => {
                   <rect width={20} height={14} x={2} y={5} rx={2} />
                   <line x1={2} x2={22} y1={10} y2={10} />
                 </svg>
-                <span>Secure Checkout</span>
+                <span>Checkout</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -266,56 +309,16 @@ const Cart = () => {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </button>
-              <div className="flex items-center justify-center gap-2 mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 rounded-xl">
-                <div className="p-1 bg-green-500 rounded-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-3 w-3 md:h-4 md:w-4 text-white"
-                  >
-                    <rect width={18} height={11} x={3} y={11} rx={2} ry={2} />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                </div>
-                <span className="text-xs md:text-sm font-medium text-gray-700">
-                  256-bit SSL Secured Checkout
-                </span>
-              </div>
-              <div className="mt-4 md:mt-6 text-center">
-                <p className="text-xs md:text-sm text-gray-600 mb-3 font-medium">
-                  We accept
-                </p>
-                <div className="flex items-center justify-center">
-                  <img
-                    alt="Payment Partners"
-                    loading="lazy"
-                    width={600}
-                    height={120}
-                    decoding="async"
-                    data-nimg={1}
-                    className="w-full h-auto max-w-md"
-                    srcSet="/_next/image?url=%2Fimages%2Fpayment-partnet-cart.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fpayment-partnet-cart.png&w=1200&q=75 2x"
-                    src="/_next/image?url=%2Fimages%2Fpayment-partnet-cart.png&w=1200&q=75"
-                    style={{ color: "transparent" }}
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <section className="py-8 md:py-12 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50 mt-10">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-              Why Choose <span className="text-blue-600">Japan Parts?</span>
+              Why Choose{" "}
+              <span className="text-blue-600">SiOi Global Trade?</span>
             </h2>
             <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               Genuine Japanese automotive parts with comprehensive service
