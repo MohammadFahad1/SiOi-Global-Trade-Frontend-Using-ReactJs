@@ -35,6 +35,7 @@ const useCart = () => {
     } finally {
       setLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authToken, cartId]);
 
   //   Add Items to the cart
@@ -62,10 +63,47 @@ const useCart = () => {
         setLoading(false);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [authToken, cartId],
   );
 
-  return { createOrGetCart, addCartItems, cart, loading, errorMsg, cartId };
+  // Update item quantity
+  const updateCartItemQuantity = useCallback(
+    async (item_id, quantity) => {
+      if (!cartId) await createOrGetCart();
+      setErrorMsg("");
+      try {
+        const res = await authApiClient.patch(
+          `/carts/${cartId}/items/${item_id}/`,
+          {
+            quantity,
+          },
+        );
+        return {
+          success: true,
+          data: res.data,
+        };
+      } catch (error) {
+        setErrorMsg(error.message);
+        return {
+          success: false,
+          message: error.message,
+        };
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [cartId, authToken],
+  );
+
+  return {
+    createOrGetCart,
+    addCartItems,
+    cart,
+    loading,
+    errorMsg,
+    cartId,
+    updateCartItemQuantity,
+  };
 };
 
 export default useCart;
