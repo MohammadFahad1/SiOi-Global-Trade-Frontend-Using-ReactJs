@@ -43,6 +43,10 @@ const useAuth = () => {
       setUser(res.data);
     } catch (err) {
       setErrorMsg(err.response?.data.detail || "Failed to fetch user profile");
+      localStorage.removeItem("cartId");
+      localStorage.removeItem("authTokens");
+      setUser(null);
+      setAuthToken(null);
     } finally {
       setLoading(false);
     }

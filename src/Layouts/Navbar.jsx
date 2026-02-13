@@ -3,8 +3,11 @@ import { NavLink } from "react-router";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import LoggedInUserOnNav from "../components/NavbarUserAvatarOrLoginBtn";
 import NavbarUserAvatarOrLoginBtn from "../components/NavbarUserAvatarOrLoginBtn";
+import useCartContext from "../hooks/useCartContext";
 
 const Navbar = () => {
+  const { cart } = useCartContext();
+
   const navLinks = (
     <>
       <li>
@@ -150,7 +153,16 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <NavLink to="/dashboard/cart" className="tooltip" data-tip="Cart">
+            <NavLink
+              to="/dashboard/cart"
+              className="tooltip relative top-0 left-0"
+              data-tip="Cart"
+            >
+              {cart?.items.length > 0 && (
+                <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-xs text-white">
+                  {cart?.items.length}
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

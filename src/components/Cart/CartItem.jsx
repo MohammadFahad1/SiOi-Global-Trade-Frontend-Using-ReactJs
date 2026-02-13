@@ -152,7 +152,7 @@ const CartItem = ({ items, handleUpdateQuantity, handleRemoveItem }) => {
                       </div>
                       <div className="text-center md:text-right">
                         <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
-                          ৳{item.subtotal}
+                          ৳{item.subtotal.toFixed(2)}
                         </div>
                         <div className="text-gray-600 text-sm sm:text-base md:text-lg">
                           ৳{item.product.price} each
