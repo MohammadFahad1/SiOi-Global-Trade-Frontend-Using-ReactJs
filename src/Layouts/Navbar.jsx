@@ -158,9 +158,9 @@ const Navbar = () => {
               className="tooltip relative top-0 left-0"
               data-tip="Cart"
             >
-              {cart?.items.length > 0 && (
+              {cart?.items?.length > 0 && (
                 <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-xs text-white">
-                  {cart?.items.length}
+                  {cart?.items?.length}
                 </span>
               )}
               <svg

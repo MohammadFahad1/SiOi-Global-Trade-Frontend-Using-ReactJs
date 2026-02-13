@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import authApiClient from "../services/auth-api-client";
 
 const useCart = () => {
@@ -9,6 +9,7 @@ const useCart = () => {
   const [cartId, setCartId] = useState(() => localStorage.getItem("cartId"));
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [trigger, setTrigger] = useState(false);
 
   // Create a new cart
   const createOrGetCart = useCallback(async () => {
@@ -49,6 +50,9 @@ const useCart = () => {
           product_id,
           quantity,
         });
+
+        setTrigger(true);
+
         return {
           success: true,
           data: res.data,
@@ -102,7 +106,18 @@ const useCart = () => {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const initializeCart = async () => {
+      setLoading(true);
+      await createOrGetCart();
+      setLoading(false);
+      setTrigger(false);
+    };
+    initializeCart();
+  }, [trigger, createOrGetCart]);
 
   return {
     createOrGetCart,
@@ -113,6 +128,7 @@ const useCart = () => {
     cartId,
     updateCartItemQuantity,
     deleteCartItem,
+    setTrigger,
   };
 };
 

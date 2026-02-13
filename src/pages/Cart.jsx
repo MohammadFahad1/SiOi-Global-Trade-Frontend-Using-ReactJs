@@ -11,6 +11,7 @@ const Cart = () => {
     updateCartItemQuantity,
     loading,
     deleteCartItem,
+    setTrigger,
   } = useCartContext();
   const [localCart, setLocalCart] = useState(cart);
 
@@ -35,7 +36,6 @@ const Cart = () => {
             }
           : item,
       );
-
       return {
         ...prevLocalCart,
         items: updatedItems,
@@ -73,6 +73,7 @@ const Cart = () => {
     try {
       // Remove the item from the cart
       await deleteCartItem(itemId);
+      setTrigger(true);
     } catch (error) {
       // Handle error
       console.error("Error removing item from cart:", error.message);
